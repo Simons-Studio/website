@@ -5,7 +5,8 @@ let eyeRotation;
 
 function setup() {
   // create the canvas (800px wide, 800px high)
-  createCanvas(800, 800);
+  var canvas = createCanvas(400, 400);
+  canvas.parent('monster-sketch');
 
   // draw a border to help you see the size
   // this isn't compulsory (remove this code if you like)
@@ -16,7 +17,7 @@ function setup() {
   eyePosition = createVector(0, 0);
   eyeRotation = 0;
 
-  numberOfCircles = 100;
+  let numberOfCircles = 100;
 
   for (let i = 0; i < numberOfCircles; i++) {
     colourShapes.push(new ColorElement(
