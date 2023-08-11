@@ -16,7 +16,9 @@ function setup() {
   eyePosition = createVector(0, 0);
   eyeRotation = 0;
 
-  for (let i = 0; i < 1000; i++) {
+  numberOfCircles = 100;
+
+  for (let i = 0; i < numberOfCircles; i++) {
     colourShapes.push(new ColorElement(
       createVector(random(0, width), random(0, height)), 
       color(random(255), random(255), random(255))
