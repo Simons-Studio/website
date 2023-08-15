@@ -1,3 +1,12 @@
 h1 {
   color: cadetblue;
 }
+
+.p5-sketch {
+  width: auto;
+}
+
+body {
+  background-color: yellow;
+  color: black;
+}
