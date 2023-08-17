@@ -1,14 +1,49 @@
-h1 {
-  color: cadetblue;
-}
-
 body {
-  background-color: black;
-  color: yellow;
+  background-color: white;
+  color: black;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .p5-sketch {
   width: 100%;
   align-items: center;
+}
+header {
+  display: flex;
+}
+
+header a {
+  color: cadetblue;
+  text-decoration: none;
+}
+
+header h1 {
+  padding: 0.1em;
+}
+
+header h1:hover {
+  background-color: yellow;
+}
+
+.nav-bar {
+  display: flex;
+  list-style: none;
+}
+
+.nav-bar li {
+  border: 0.1em solid black;
+  border-radius: 2em;
+  padding: 0.5em;
+  padding-bottom: 0.4em;
+  padding-top: 0.6em;
+  margin: 0.2em;
+}
+
+.nav-bar li:hover {
+  background-color: gainsboro;
+}
+
+.nav-bar a {
+  text-decoration: none;
+  color: black;
 }
