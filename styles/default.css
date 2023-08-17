@@ -21,10 +21,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.p5-sketch {
-  align-items: center;
-}
-
 .topbar {
   background-color: var(--redwood);
   display: flex;
@@ -75,7 +71,13 @@ header h1:hover {
   color: white;
 }
 
-picture {
+img {
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+}
+
+.p5-sketch {
   width: 100%;
   height: auto;
 }
