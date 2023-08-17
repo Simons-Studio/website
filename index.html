@@ -70,6 +70,20 @@
         </p>
       </article>
 
+      <article>
+        <h2>
+          <time datetime="2023-08-17">2023-08-17</time>: Adding Responsive Images
+        </h2>
+        <p>
+          This week I am learning to add images using the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">img</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture">picture</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#srcset">srcset</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/SVG">svg</a> HTML elements. So Here I have added an image that will resize depending on the browser.
+        </p>
+        <picture>
+          <source srcset="images/road-to-canberra-1920px.jpg 1920w, images/road-to-canberra-720px.jpg 720w" media="(orientation: landscape)" />
+          <source srcset="images/road-to-canberra-720px-protrait.jpg 720w, images/road-to-canberra-480px-protrait.jpg 480w" media="(orientation: portrait)" />
+          <img src="images/road-to-canberra-1920px.jpg" alt="Tire tracks split a grassy field, forming a road that leading toward a city in the distance.">
+        </picture>
+      </article>
+
       <aside>
         <address>
           <p>
