@@ -28,13 +28,11 @@ body {
 .topbar {
   background-color: var(--redwood);
   display: flex;
+  flex-flow: row wrap;
   align-items: center;
-  width: 100%;
+  justify-content: space-around;
+  width: auto;
   margin-top: 1em;
-}
-
-header {
-  display: flex;
 }
 
 header a {
@@ -55,19 +53,20 @@ header h1:hover {
 
 .nav-bar {
   display: flex;
+  flex-flow: row wrap;
   list-style: none;
 }
 
-.nav-bar li {
+.nav-bar p {
   border: 0.1em solid white;
   border-radius: 2em;
   padding: 0.5em;
   padding-bottom: 0.4em;
   padding-top: 0.6em;
-  margin: 0.2em;
+  margin-inline: 0.2em;
 }
 
-.nav-bar li:hover {
+.nav-bar p:hover, .nav-bar p:active {
   background-color: var(--wenge);
 }
 
