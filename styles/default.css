@@ -2,12 +2,13 @@ h1 {
   color: cadetblue;
 }
 
-.p5-sketch {
-  width: auto;
-}
-
 body {
   background-color: black;
   color: yellow;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.p5-sketch {
+  width: 100%;
+  align-items: center;
 }
