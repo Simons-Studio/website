@@ -75,6 +75,7 @@ header h1:hover {
   color: white;
 }
 
-h2 {
-  color: var(--cadet-gray);
+picture {
+  width: 100%;
+  height: auto;
 }
