@@ -11,7 +11,7 @@
 }
 
 body {
-  /* margin: 0; */
+  margin: 0;
   background-color: var(--charcoal);
   color: white;
   font-family: Arial, Helvetica, sans-serif;
@@ -24,13 +24,17 @@ article {
 }
 
 .topbar {
+  margin: 1em;
+}
+
+.nav-bar {
   background-color: var(--redwood);
   display: flex;
   flex-flow: row wrap;
   align-items: center;
   justify-content: space-around;
   width: auto;
-  margin-top: 1em;
+  border-radius: 1rem 1rem 0 0;
 }
 
 header a {
@@ -49,13 +53,13 @@ header h1:hover {
   background-color: var(--wenge);
 }
 
-.nav-bar {
+.nav-elements {
   display: flex;
   flex-flow: row wrap;
   list-style: none;
 }
 
-.nav-bar p {
+.nav-elements p {
   border: 0.1em solid white;
   border-radius: 2em;
   padding: 0.5em;
@@ -74,6 +78,12 @@ header h1:hover {
   color: white;
 }
 
+.layer-transition {
+  max-width: none;
+  width: 100%;
+  height: auto;
+}
+
 h2 {
   color: black;
   background-color: var(--cadet-gray);
@@ -85,12 +95,6 @@ h2 {
 
 img {
   max-width: 600px;
-  width: 100%;
-  height: auto;
-}
-
-.layer-transition {
-  max-width: none;
   width: 100%;
   height: auto;
 }
