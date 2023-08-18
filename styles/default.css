@@ -92,8 +92,8 @@ header h1:hover {
 }
 
 h2 {
-  color: black;
-  background-color: var(--cadet-gray);
+  color: white;
+  background-color: var(--wenge);
   padding: 0.5em;
   padding-bottom: 0.4em;
   padding-top: 0.6em;
