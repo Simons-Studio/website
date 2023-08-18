@@ -73,15 +73,22 @@ header h1:hover {
   background-color: var(--wenge);
 }
 
-.nav-bar a {
+/* TODO: This rule seems wrong */
+.nav-bar a:link, 
+.nav-bar a:visited,
+.nav-bar a:focus,
+.nav-bar a:hover,
+.nav-bar a:active {
   text-decoration: none;
   color: white;
+  background: #00000000;
 }
 
 .layer-transition {
   max-width: none;
   width: 100%;
   height: auto;
+  border-radius: 0;
 }
 
 h2 {
@@ -97,9 +104,27 @@ img {
   max-width: 600px;
   width: 100%;
   height: auto;
+  border-radius: 1rem;
 }
 
 .p5-sketch {
   width: 100%;
   height: auto;
+}
+
+a:link {
+  color: var(--ecru);
+}
+
+a:visited {
+  color: var(--cadet-gray);
+}
+
+a:focus, a:hover, a:active {
+  text-decoration: dashed;
+  background: var(--redwood);
+}
+
+footer {
+  margin: 1em;
 }
