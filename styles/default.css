@@ -1,12 +1,7 @@
 /*
- * I have selected a pallet for the website, These colours may need tweeking
---redwood: #975a47;
---ecru: #cfaa6e;
---wenge: #716364;
---charcoal: #3d4554;
---cadet-gray: #9fa7ad;
+ * I have selected a pallet for the website, 
+ * These colours may need tweeking
  */
-
 :root {
   --redwood: #975a47;
   --ecru: #cfaa6e;
@@ -14,8 +9,9 @@
   --charcoal: #3d4554;
   --cadet-gray: #9fa7ad;
 }
- 
+
 body {
+  /* margin: 0; */
   background-color: var(--charcoal);
   color: white;
   font-family: Arial, Helvetica, sans-serif;
@@ -62,7 +58,8 @@ header h1:hover {
   margin-inline: 0.2em;
 }
 
-.nav-bar p:hover, .nav-bar p:active {
+.nav-bar p:hover,
+.nav-bar p:active {
   background-color: var(--wenge);
 }
 
@@ -75,6 +72,13 @@ img {
   max-width: 600px;
   width: 100%;
   height: auto;
+}
+
+.layer-transition {
+  max-width: none;
+  width: 100%;
+  height: auto;
+  /* margin-top: -5px; */
 }
 
 .p5-sketch {
