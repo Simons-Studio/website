@@ -5,8 +5,7 @@ let eyeRotation;
 
 function setup() {
   // create the canvas (800px wide, 800px high)
-  var canvas = createCanvas(400, 400);
-  canvas.parent('monster-sketch');
+  createCanvas(800, 800);
 
   // draw a border to help you see the size
   // this isn't compulsory (remove this code if you like)
@@ -20,21 +19,23 @@ function setup() {
   let numberOfCircles = 100;
 
   for (let i = 0; i < numberOfCircles; i++) {
-    colourShapes.push(new ColorElement(
-      createVector(random(0, width), random(0, height)), 
-      color(random(255), random(255), random(255))
-      ));
+    colourShapes.push(
+      new ColorElement(
+        createVector(random(0, width), random(0, height)),
+        color(random(255), random(255), random(255))
+      )
+    );
   }
 }
 
 function draw() {
   background(0);
   setting();
-  
+
   // Eye variables
-  let breathing = sin((frameCount % 1200)/1200*2*PI);
+  let breathing = sin(((frameCount % 1200) / 1200) * 2 * PI);
   let eyeD = 150;
-  let eyeOpen = PI/2 + 1/9 * PI * breathing;
+  let eyeOpen = PI / 2 + (1 / 9) * PI * breathing;
   let eyeBeam = 250;
   let irisColour = color(0, 130, 190, 250);
 
@@ -54,7 +55,7 @@ function draw() {
     eyePosition.add(move.move);
     eyeRotation += move.rotate;
 
-    // De-colour the shapes 
+    // De-colour the shapes
     if (move.arrived) {
       let transfer = colourShapes.shift();
       transfer.removeColour();
@@ -74,10 +75,16 @@ function draw() {
   // Legs
   let numLegs = 6;
   for (let i = 0; i < numLegs; i++) {
-    let left = i >= numLegs/2;
-    leg(eyePosition.x, eyePosition.y, eyeD, eyeRotation, 3*PI/8 + i*5*PI/(4*numLegs-1), left);
+    let left = i >= numLegs / 2;
+    leg(
+      eyePosition.x,
+      eyePosition.y,
+      eyeD,
+      eyeRotation,
+      (3 * PI) / 8 + (i * 5 * PI) / (4 * numLegs - 1),
+      left
+    );
   }
-
 }
 
 // when you hit the spacebar, what's currently on the canvas will be saved (as a
@@ -87,7 +94,6 @@ function keyTyped() {
     saveCanvas("monster.png");
   }
 }
-
 
 // A class to define the colourful shapes that makeup the background
 class ColorElement {
@@ -102,7 +108,7 @@ class ColorElement {
   // This function changes the colour of the shapes to greyscale
   removeColour() {
     let c = this.colour;
-    this.colour = color(0.2126*red(c) + 0.7152*green(c) + 0.0722*blue(c));
+    this.colour = color(0.2126 * red(c) + 0.7152 * green(c) + 0.0722 * blue(c));
   }
 
   getPos() {
@@ -128,7 +134,7 @@ function setting() {
   // 2% of the time create a new shape object and store it
   // if (random(99) >= 97 && colourShapes.length < 200) {
   //   colourShapes.push(new ColorElement(
-  //     createVector(random(0, width), random(0, height)), 
+  //     createVector(random(0, width), random(0, height)),
   //     color(random(255), random(255), random(255))
   //     ));
   // }
@@ -136,71 +142,72 @@ function setting() {
   // Draw the shapes onto the screen
   for (let i = 0; i < greyShapes.length; i++) {
     greyShapes[i].draw();
-  }  
+  }
   for (let i = 0; i < colourShapes.length; i++) {
     colourShapes[i].draw();
   }
 }
 
 // This function determines the destination position of the eye, given
-// the length of the beam (beamLength), the initial position of the 
+// the length of the beam (beamLength), the initial position of the
 // eye (pos) and the position of the ColourElement (colourPos);
 function eyeDestination(pos, colourPos, beamLength) {
-
   let diffV = p5.Vector.sub(colourPos, pos);
   let dest = pos;
 
   diffV.setMag(beamLength);
-  dest = p5.Vector.sub(colourPos, diffV);  
-  
-  return {"dest" : dest, "angle" : diffV.heading()};
+  dest = p5.Vector.sub(colourPos, diffV);
+
+  return { dest: dest, angle: diffV.heading() };
 }
 
-// This function determines the incremental movement amounts for the 
-// eye, given the eye's position (pos), angle (angle), destination (dest) 
-// and target angle (destAngle). 
+// This function determines the incremental movement amounts for the
+// eye, given the eye's position (pos), angle (angle), destination (dest)
+// and target angle (destAngle).
 function eyeMove(pos, angle, dest, destAngle) {
-
   let speed = 30;
   let distantToTarget = p5.Vector.sub(dest, pos).mag();
   let angleToTarget = destAngle - angle;
-  let arrived = distantToTarget < 2 && angleToTarget < PI/90;
+  let arrived = distantToTarget < 2 && angleToTarget < PI / 90;
   let posAdd = p5.Vector.sub(dest, pos).div(speed);
   let angAdd = (destAngle - angle) / speed;
-  
-  return {"move" : posAdd, "rotate" : angAdd, "arrived" : arrived};
+
+  return { move: posAdd, rotate: angAdd, arrived: arrived };
 }
 
 // Draw the veins on an eye given its position (x, y) and diameter (d)
-// this can then be rotated about the circle using "rotation". Teen 
+// this can then be rotated about the circle using "rotation". Teen
 // "angle" describes the where our leg can come from
 function leg(x, y, d, rotation, angle, left) {
   push();
   // legs cannot all come out of the same point
-  let join = createVector(x+d*0.53*cos(rotation+angle), y+d*0.53*sin(rotation+angle));
+  let join = createVector(
+    x + d * 0.53 * cos(rotation + angle),
+    y + d * 0.53 * sin(rotation + angle)
+  );
   let base = createVector(0, join.y);
   let edgeAngle = PI;
 
   // calculate the closest edge we can simplify the calculation
-  // by knowing that our eye sits in a box. Leg looks for closest 
+  // by knowing that our eye sits in a box. Leg looks for closest
   // wall, and then folds to preserve its own length
   let length = join.x;
   if (length > width - join.x) {
     base.x = width;
     length = width - join.x;
     edgeAngle = 0;
-  } 
+  }
   if (length > join.y) {
     base.x = join.x;
     base.y = 0;
     length = join.y;
-    edgeAngle = -PI/2;
-  } 
+    edgeAngle = -PI / 2;
+  }
   if (length > height - join.y) {
     base.x = join.x;
     base.y = height;
     length = height - join.y;
-    edgeAngle = PI/2;
+    edgeAngle = PI / 2;
   }
 
   // 2 segment legs -> determine the angle that the first segment
@@ -208,18 +215,23 @@ function leg(x, y, d, rotation, angle, left) {
   let segmentLength = 150;
   let segmentWidth = 10;
   // If leg cannot reach nearest wall then detach from wall and bend
-  if (length > 2*segmentLength) {
-    length = 1.7*segmentLength;
-    base = createVector(join.x + length*cos(edgeAngle), join.y + length*sin(edgeAngle));
+  if (length > 2 * segmentLength) {
+    length = 1.7 * segmentLength;
+    base = createVector(
+      join.x + length * cos(edgeAngle),
+      join.y + length * sin(edgeAngle)
+    );
   }
-  let kneeAngle = acos(length/(2*segmentLength));
+  let kneeAngle = acos(length / (2 * segmentLength));
   // Left leg angle needs to be reversed
   if (left) kneeAngle = -kneeAngle;
-  let midPoint = createVector(join.x + segmentLength*cos(edgeAngle+kneeAngle), join.y + segmentLength*sin(edgeAngle+kneeAngle));
+  let midPoint = createVector(
+    join.x + segmentLength * cos(edgeAngle + kneeAngle),
+    join.y + segmentLength * sin(edgeAngle + kneeAngle)
+  );
 
-
-  fill(222,184,135)
-  stroke(222,184,135);
+  fill(222, 184, 135);
+  stroke(222, 184, 135);
   strokeWeight(segmentWidth);
   line(join.x, join.y, midPoint.x, midPoint.y);
   line(base.x, base.y, midPoint.x, midPoint.y);
@@ -236,10 +248,10 @@ function beam(origin, rotation, beamLength) {
   fill(200, 200, 0, 50);
 
   //End points of the triangle (points one and two)
-  let pointOne = createVector(beamLength, d/2);
+  let pointOne = createVector(beamLength, d / 2);
   pointOne.rotate(rotation);
   pointOne.add(origin);
-  let pointTwo = createVector(beamLength, -d/2);
+  let pointTwo = createVector(beamLength, -d / 2);
   pointTwo.rotate(rotation);
   pointTwo.add(origin);
 
@@ -255,14 +267,14 @@ function beam(origin, rotation, beamLength) {
 }
 
 // Draw the eyelid on an eye given its position (x, y) and diameter (d)
-// this can then be rotated about the circle using "rotation". The 
+// this can then be rotated about the circle using "rotation". The
 // eyelid can be opened to an angle given by "open".
 function eyelid(x, y, d, rotation, open) {
   push();
   strokeWeight(3);
-  stroke(222,184,135);
-  fill(255,204,153);
-  arc(x, y, 1.06*d, 1.06*d, rotation+open/2, rotation-open/2, PIE);
+  stroke(222, 184, 135);
+  fill(255, 204, 153);
+  arc(x, y, 1.06 * d, 1.06 * d, rotation + open / 2, rotation - open / 2, PIE);
   // TODO: Eyelashes
   pop();
 }
@@ -272,43 +284,52 @@ function eyelid(x, y, d, rotation, open) {
 function vein(x, y, d, rotation) {
   push();
 
-  fill (255, 0, 0);
-  stroke(255, 0 , 0);
+  fill(255, 0, 0);
+  stroke(255, 0, 0);
   strokeWeight(1);
   let originPercent = d * 0.35;
-  let origin = createVector(x - originPercent * cos(rotation), y - originPercent * sin(rotation));
+  let origin = createVector(
+    x - originPercent * cos(rotation),
+    y - originPercent * sin(rotation)
+  );
 
   // The veins use a fractal pattern created by a recursive function
   // veinHelper
   let depth = 3;
-  let length = d/3;
+  let length = d / 3;
   veinHelper(depth, origin, rotation, length);
 
   pop();
 }
 
 // This function is recursive and creates progressively smaller lines.
-// "depth" describes the number of recursions that can happen. "v" is 
-// the initial position, rotation is the old rotation, and "length" is 
-// the fractal length that is passed through 
+// "depth" describes the number of recursions that can happen. "v" is
+// the initial position, rotation is the old rotation, and "length" is
+// the fractal length that is passed through
 function veinHelper(depth, v, rotation, length) {
-  let angle = 25/360*2*PI;
+  let angle = (25 / 360) * 2 * PI;
   let firstBranch = 0.5 * length;
   let secondBranch = 0.7 * length;
 
-  let end = createVector(v.x + length * cos(rotation), v.y + length * sin(rotation));
+  let end = createVector(
+    v.x + length * cos(rotation),
+    v.y + length * sin(rotation)
+  );
   line(v.x, v.y, end.x, end.y);
 
   if (depth > 0) {
     depth = depth - 1;
 
     // The fractal branches from two points
-    let firstNode = createVector(v.x + firstBranch * cos(rotation), v.y + firstBranch * sin(rotation));
+    let firstNode = createVector(
+      v.x + firstBranch * cos(rotation),
+      v.y + firstBranch * sin(rotation)
+    );
     // Recursively passing through new branches
-    veinHelper(depth, firstNode, rotation-2*angle, secondBranch);
-    veinHelper(depth, firstNode, rotation+2*angle, secondBranch);
-    veinHelper(depth, end, rotation+angle, secondBranch);
-    veinHelper(depth, end, rotation-angle, secondBranch);
+    veinHelper(depth, firstNode, rotation - 2 * angle, secondBranch);
+    veinHelper(depth, firstNode, rotation + 2 * angle, secondBranch);
+    veinHelper(depth, end, rotation + angle, secondBranch);
+    veinHelper(depth, end, rotation - angle, secondBranch);
   }
 }
 
@@ -321,11 +342,23 @@ function iris(x, y, d, rotation, irisColour) {
   stroke(30);
 
   // define the curve points of the iris
-  let lensArc = 1/3*PI;
-  let apex = createVector(x + d*0.53 * cos(rotation), y + d*0.53 * sin(rotation));
-  let endP = createVector(x + d/2 * cos(rotation+lensArc/2), y + d/2 * sin(rotation+lensArc/2));
-  let endN = createVector(x + d/2 * cos(rotation-lensArc/2), y + d/2 * sin(rotation-lensArc/2));
-  let base = createVector(x + d*0.42 * cos(rotation), y + d*0.42 * sin(rotation));
+  let lensArc = (1 / 3) * PI;
+  let apex = createVector(
+    x + d * 0.53 * cos(rotation),
+    y + d * 0.53 * sin(rotation)
+  );
+  let endP = createVector(
+    x + (d / 2) * cos(rotation + lensArc / 2),
+    y + (d / 2) * sin(rotation + lensArc / 2)
+  );
+  let endN = createVector(
+    x + (d / 2) * cos(rotation - lensArc / 2),
+    y + (d / 2) * sin(rotation - lensArc / 2)
+  );
+  let base = createVector(
+    x + d * 0.42 * cos(rotation),
+    y + d * 0.42 * sin(rotation)
+  );
 
   // the iris
   beginShape();
@@ -339,12 +372,21 @@ function iris(x, y, d, rotation, irisColour) {
   endShape();
 
   // define the curve points of the pupil
-  let pupilArc = 1/6*PI;
-  let pupP = createVector(x + d*0.51 * cos(rotation+pupilArc/2), y + d*0.51 * sin(rotation+pupilArc/2));
-  let pupN = createVector(x + d*0.51 * cos(rotation-pupilArc/2), y + d*0.51 * sin(rotation-pupilArc/2));
-  let pupBase = createVector(x + d*0.49 * cos(rotation), y + d*0.49 * sin(rotation));
+  let pupilArc = (1 / 6) * PI;
+  let pupP = createVector(
+    x + d * 0.51 * cos(rotation + pupilArc / 2),
+    y + d * 0.51 * sin(rotation + pupilArc / 2)
+  );
+  let pupN = createVector(
+    x + d * 0.51 * cos(rotation - pupilArc / 2),
+    y + d * 0.51 * sin(rotation - pupilArc / 2)
+  );
+  let pupBase = createVector(
+    x + d * 0.49 * cos(rotation),
+    y + d * 0.49 * sin(rotation)
+  );
 
-  fill(0,240);
+  fill(0, 240);
   // the pupil
   beginShape();
   curveVertex(pupBase.x, pupBase.y);
@@ -358,4 +400,3 @@ function iris(x, y, d, rotation, irisColour) {
 
   pop();
 }
-

@@ -108,8 +108,11 @@ img {
 }
 
 .p5-sketch {
+  max-width: 600px;
   width: 100%;
-  height: auto;
+  border-radius: 1rem;
+  resize: both;
+  overflow: hidden;
 }
 
 a:link {
