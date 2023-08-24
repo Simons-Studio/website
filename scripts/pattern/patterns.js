@@ -94,6 +94,9 @@ function uniqueCharacters(s) {
 function mousePressed() {
   activated = true;
   background(cadet_gray);
+  pos = { x: width / 2, y: height / 2 };
+
+  pattern = document.getElementById("pattern-input").value;
 
   console.log(uniqueCharacters(pattern));
 }
