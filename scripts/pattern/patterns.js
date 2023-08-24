@@ -22,13 +22,9 @@ function setup() {
 }
 
 function draw() {
-  // background(cadet_gray);
-
   let elements = uniqueCharacters(pattern);
   let uniqueElements = elements.uniqueChars;
   let numElements = elements.numElements;
-
-  // console.log(uniqueElements);
 
   let directionIndex = uniqueElements[pattern[index]];
   let direction = (directionIndex * 2 * PI) / numElements;
@@ -38,8 +34,6 @@ function draw() {
     x: pos.x + length * Math.cos(direction),
     y: pos.y + length * Math.sin(direction),
   };
-
-  // console.log(numElements);
 
   push();
   let from = color(redwood);
