@@ -1,15 +1,37 @@
+activated = false;
 pattern = "AABBC";
 
-// const renderer = new p5.Renderer(document.getElementById("p5-pattern-sketch"));
+const parent = document.getElementById("p5-pattern-sketch");
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  let canvas = createCanvas(parent.clientWidth, parent.clientHeight);
+  canvas.parent("p5-pattern-sketch");
+
+  console.log(parent);
 }
 
 function draw() {
-  background(255, 0, 0);
+  startScreen();
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  resizeCanvas(parent.clientWidth, parent.clientHeight);
+}
+
+/*
+ * This function will transition the sketch from the splash screen to the sketch
+ */
+function mousePressed() {
+  if (!activated) {
+    // setup sketch
+  }
+}
+
+function startScreen() {
+  background(0);
+  textFont("Helvetica");
+  textAlign(CENTER);
+  textSize(32);
+  fill(255);
+  text(pattern, width / 4, height / 2);
 }

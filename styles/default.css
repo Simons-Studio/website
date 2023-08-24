@@ -112,6 +112,8 @@ img {
   width: 100%;
   border-radius: 1rem;
   overflow: hidden;
+  padding: 0;
+  margin: 0;
 }
 
 a:link {
