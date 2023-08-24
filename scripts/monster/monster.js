@@ -2,19 +2,15 @@ let colourShapes = [];
 let greyShapes = [];
 let eyePosition;
 let eyeRotation;
+let eyeD;
+let eyeBeam;
 
 function setup() {
-  // create the canvas (800px wide, 800px high)
-  createCanvas(800, 800);
-
-  // draw a border to help you see the size
-  // this isn't compulsory (remove this code if you like)
-  strokeWeight(1);
-  noFill();
-  rect(0, 0, width, height);
+  createCanvas(windowWidth, windowHeight);
 
   eyePosition = createVector(0, 0);
   eyeRotation = 0;
+  calcEyeD();
 
   let numberOfCircles = 100;
 
@@ -34,9 +30,7 @@ function draw() {
 
   // Eye variables
   let breathing = sin(((frameCount % 1200) / 1200) * 2 * PI);
-  let eyeD = 150;
   let eyeOpen = PI / 2 + (1 / 9) * PI * breathing;
-  let eyeBeam = 250;
   let irisColour = color(0, 130, 190, 250);
 
   // Move the monster
@@ -85,6 +79,23 @@ function draw() {
       left
     );
   }
+}
+
+function resizeShapes(oldWidth, oldHeight, newWidth, newHeight) {
+  for (shape of colourShapes) {
+    shape.startP.x *= newWidth / oldWidth;
+    shape.startP.y *= newHeight / oldHeight;
+  }
+
+  for (shape of greyShapes) {
+    shape.startP.x *= newWidth / oldWidth;
+    shape.startP.y *= newHeight / oldHeight;
+  }
+}
+
+function calcEyeD() {
+  eyeD = (max(width, height) * 3) / 16;
+  eyeBeam = (max(width, height) * 5) / 16;
 }
 
 // when you hit the spacebar, what's currently on the canvas will be saved (as a
@@ -399,4 +410,12 @@ function iris(x, y, d, rotation, irisColour) {
   endShape();
 
   pop();
+}
+
+function windowResized() {
+  let oldWidth = width;
+  let oldHeight = height;
+  resizeCanvas(windowWidth, windowHeight);
+  calcEyeD();
+  resizeShapes(oldWidth, oldHeight, width, height);
 }
