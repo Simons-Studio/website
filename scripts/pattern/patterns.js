@@ -1,14 +1,14 @@
 pattern = "AABBC";
 
-const renderer = new p5.Renderer(document.getElementById("p5-pattern-sketch"));
+// const renderer = new p5.Renderer(document.getElementById("p5-pattern-sketch"));
 
 function setup() {
-  background(0);
-
-  transform(width / 2, height / 2);
+  createCanvas(windowWidth, windowHeight);
 }
 
-function draw() {}
+function draw() {
+  background(255, 0, 0);
+}
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
