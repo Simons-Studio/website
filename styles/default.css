@@ -133,12 +133,9 @@ a:focus, a:hover, a:active {
 
 /* Text for pattern */
 #pattern-input {
-  /* display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content:first baseline; */
+  box-sizing: border-box;
+
   max-width: 600px;
-  width: auto;
   margin: 1ex 0ex 1ex 0ex;
   border-radius: 2rem;
   border: white solid 0.1em;
@@ -147,12 +144,16 @@ a:focus, a:hover, a:active {
   padding-bottom: 0.4em;
   padding-top: 0.6em;
 
-  width: max-content;
-  height: 100%;
-  background: var(--wenge);
+  width: 100%;
+  background: none;
   color: white;
   overflow-wrap: break-word;
   font-family: inherit;
+}
+
+#pattern-input:focus,
+#pattern-input:hover {
+  border: var(--redwood) solid 0.1em;
 }
 
 footer {
