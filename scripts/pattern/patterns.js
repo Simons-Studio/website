@@ -4,7 +4,7 @@ let index = 0;
 let frameCountOffset = 0;
 let pos;
 
-// Pallet
+// Palette
 let redwood = "#975a47";
 let ecru = "#cfaa6e";
 let wenge = "#716364";
@@ -22,44 +22,47 @@ function setup() {
 }
 
 function draw() {
-  let elements = uniqueCharacters(pattern);
-  let uniqueElements = elements.uniqueChars;
-  let numElements = elements.numElements;
+  if (pattern.length > 0) {
+    let elements = uniqueCharacters(pattern);
+    let uniqueElements = elements.uniqueChars;
+    let numElements = elements.numElements;
 
-  let directionIndex = uniqueElements[pattern[index]];
-  let direction = (directionIndex * 2 * PI) / numElements;
+    let directionIndex = uniqueElements[pattern[index]];
+    let direction = (directionIndex * 2 * PI) / numElements;
 
-  let length = min(width, height) / 10;
-  let nextPos = {
-    x: pos.x + length * Math.cos(direction),
-    y: pos.y + length * Math.sin(direction),
-  };
+    let length = min(width, height) / 10;
+    let nextPos = {
+      x: pos.x + length * Math.cos(direction),
+      y: pos.y + length * Math.sin(direction),
+    };
 
-  push();
-  let from = color(redwood);
-  let to = color(ecru);
-  let lineColour = lerpColor(from, to, directionIndex / numElements);
-  stroke(lineColour);
-  strokeWeight(10);
-  line(pos.x, pos.y, nextPos.x, nextPos.y);
-  pop();
+    // Draw lines
+    push();
+    let from = color(redwood);
+    let to = color(ecru);
+    let lineColour = lerpColor(from, to, directionIndex / numElements);
+    stroke(lineColour);
+    strokeWeight(10);
+    line(pos.x, pos.y, nextPos.x, nextPos.y);
+    pop();
 
-  push();
-  fill(charcoal);
-  noStroke();
-  rect(width / 2 - 30, height / 2 - 45, 60, 60, 10);
+    // Draw letter
+    push();
+    fill(charcoal);
+    noStroke();
+    rect(10, 10, 60, 60, 10);
 
-  textFont("Helvetica");
-  textAlign(CENTER);
-  textSize(50);
-  fill(redwood);
-  text(pattern[index], width / 2, height / 2);
-  pop();
+    textAlign(CENTER);
+    textSize(50);
+    fill(redwood);
+    text(pattern[index], 40, 55);
+    pop();
 
-  if ((frameCount - frameCountOffset) % 5 == 0) {
-    pos = bound(nextPos);
-    index++;
-    index %= pattern.length;
+    if ((frameCount - frameCountOffset) % 5 == 0) {
+      pos = bound(nextPos);
+      index++;
+      index %= pattern.length;
+    }
   }
 
   if (!activated) startScreen();
@@ -74,6 +77,7 @@ function bound({ x, y }) {
 
 function windowResized() {
   resizeCanvas(parent.clientWidth, parent.clientHeight);
+  resetScreen();
 }
 
 function uniqueCharacters(s) {
@@ -93,17 +97,11 @@ function uniqueCharacters(s) {
  */
 function mousePressed() {
   activated = true;
-  background(cadet_gray);
-  pos = { x: width / 2, y: height / 2 };
-
-  pattern = document.getElementById("pattern-input").value;
-
-  console.log(uniqueCharacters(pattern));
+  resetScreen();
 }
 
 function startScreen() {
   background(cadet_gray);
-  textFont("Helvetica");
   textAlign(CENTER);
   textSize(50);
   fill(redwood);
@@ -112,4 +110,14 @@ function startScreen() {
   index = 0;
   frameCountOffset = frameCount;
   pos = { x: width / 2, y: height / 2 };
+}
+
+function resetScreen() {
+  background(cadet_gray);
+  pos = { x: width / 2, y: height / 2 };
+
+  let textbox = document.getElementById("pattern-input");
+  pattern = textbox.value;
+
+  console.log(uniqueCharacters(pattern));
 }
