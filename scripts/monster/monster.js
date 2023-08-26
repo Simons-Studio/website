@@ -14,18 +14,25 @@ function setup() {
 
   let numberOfCircles = 100;
 
+  // Palette
+  let redwood = color("#975a47");
+  let ecru = color("#cfaa6e");
+  let wenge = color("#716364");
+  let charcoal = color("#3d4554");
+  let cadet_gray = color("#9fa7ad");
+
   for (let i = 0; i < numberOfCircles; i++) {
     colourShapes.push(
       new ColorElement(
         createVector(random(0, width), random(0, height)),
-        color(random(255), random(255), random(255))
+        lerpColor(ecru, redwood, random(0, 1))
       )
     );
   }
 }
 
 function draw() {
-  background(0);
+  background("#9fa7ad");
   setting();
 
   // Eye variables
@@ -119,7 +126,13 @@ class ColorElement {
   // This function changes the colour of the shapes to greyscale
   removeColour() {
     let c = this.colour;
-    this.colour = color(0.2126 * red(c) + 0.7152 * green(c) + 0.0722 * blue(c));
+    let originalSaturation = saturation(c);
+    // let grayscale = 0.2126 * red(c) + 0.7152 * green(c) + 0.0722 * blue(c);
+    // console.log(originalSaturation / 128);
+
+    let wenge = color("#716364");
+    let charcoal = color("#3d4554");
+    this.colour = lerpColor(wenge, charcoal, originalSaturation / 128);
   }
 
   getPos() {
