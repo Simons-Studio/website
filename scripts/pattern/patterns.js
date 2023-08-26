@@ -1,5 +1,5 @@
 let activated = false;
-let pattern = "AABBC";
+let pattern = "";
 let index = 0;
 let frameCountOffset = 0;
 let pos;
@@ -14,6 +14,9 @@ let cadet_gray = "#9fa7ad";
 const parent = document.getElementById("p5-pattern-sketch");
 
 document.getElementById("pattern-input").addEventListener("input", () => {
+  if (!activated) resetScreen();
+  activated = true;
+
   pattern = document.getElementById("pattern-input").value;
   console.log(pattern);
   resetScreen();
@@ -22,8 +25,6 @@ document.getElementById("pattern-input").addEventListener("input", () => {
 function setup() {
   let canvas = createCanvas(parent.clientWidth, parent.clientHeight);
   canvas.parent("p5-pattern-sketch");
-
-  document.getElementById("pattern-input").value = pattern;
 
   pos = { x: width / 2, y: height / 2 };
   startScreen();
@@ -103,17 +104,17 @@ function uniqueCharacters(s) {
 /*
  * This function will transition the sketch from the splash screen to the sketch
  */
-function mousePressed() {
-  if (!activated) resetScreen();
-  activated = true;
-}
+// function mousePressed() {
+//   if (!activated) resetScreen();
+//   activated = true;
+// }
 
 function startScreen() {
   background(cadet_gray);
   textAlign(CENTER);
   textSize(50);
   fill(redwood);
-  text("Click", width / 2, height / 2);
+  text("Add A Pattern", width / 2, height / 2);
 
   index = 0;
   frameCountOffset = frameCount;
