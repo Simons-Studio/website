@@ -67,7 +67,7 @@ function draw() {
     text(pattern[index], 40, 55);
     pop();
 
-    if ((frameCount - frameCountOffset) % 5 == 0) {
+    if ((frameCount - frameCountOffset) % 10 == 0) {
       pos = bound(nextPos);
       index++;
       index %= pattern.length;
