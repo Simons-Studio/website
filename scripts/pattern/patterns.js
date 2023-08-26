@@ -13,6 +13,12 @@ let cadet_gray = "#9fa7ad";
 
 const parent = document.getElementById("p5-pattern-sketch");
 
+document.getElementById("pattern-input").addEventListener("input", () => {
+  pattern = document.getElementById("pattern-input").value;
+  console.log(pattern);
+  resetScreen();
+});
+
 function setup() {
   let canvas = createCanvas(parent.clientWidth, parent.clientHeight);
   canvas.parent("p5-pattern-sketch");
@@ -115,9 +121,4 @@ function startScreen() {
 function resetScreen() {
   background(cadet_gray);
   pos = { x: width / 2, y: height / 2 };
-
-  let textbox = document.getElementById("pattern-input");
-  pattern = textbox.value;
-
-  console.log(uniqueCharacters(pattern));
 }
