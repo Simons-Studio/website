@@ -112,7 +112,7 @@ function uniqueCharacters(s) {
 function startScreen() {
   background(cadet_gray);
   textAlign(CENTER);
-  textSize(50);
+  textSize(30);
   fill(redwood);
   text("Add A Pattern", width / 2, height / 2);
 
