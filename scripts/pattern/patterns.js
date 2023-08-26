@@ -1,5 +1,5 @@
 let activated = false;
-let pattern = "frogling";
+let pattern = "AABBC";
 let index = 0;
 let frameCountOffset = 0;
 let pos;
@@ -22,6 +22,8 @@ document.getElementById("pattern-input").addEventListener("input", () => {
 function setup() {
   let canvas = createCanvas(parent.clientWidth, parent.clientHeight);
   canvas.parent("p5-pattern-sketch");
+
+  document.getElementById("pattern-input").value = pattern;
 
   pos = { x: width / 2, y: height / 2 };
   startScreen();
@@ -102,8 +104,8 @@ function uniqueCharacters(s) {
  * This function will transition the sketch from the splash screen to the sketch
  */
 function mousePressed() {
+  if (!activated) resetScreen();
   activated = true;
-  resetScreen();
 }
 
 function startScreen() {
