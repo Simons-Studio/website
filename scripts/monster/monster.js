@@ -119,7 +119,7 @@ function mouseReleased() {
   if (colourShapes.length < numberOfCircles) {
     let redwood = color("#975a47");
     let ecru = color("#cfaa6e");
-    colourShapes.push(
+    colourShapes.unshift(
       new ColorElement(
         createVector(mouseX, mouseY),
         lerpColor(ecru, redwood, random(0, 1))
