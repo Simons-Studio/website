@@ -2,8 +2,8 @@ const divId = "p5-game-of-life-sketch";
 const parent = document.getElementById(divId);
 
 let palette;
-
 let board;
+let paused = true;
 
 function setup() {
   let canvas = createCanvas(parent.clientWidth, parent.clientHeight);
@@ -16,14 +16,47 @@ function setup() {
     charcoal: color("#3d4554"),
     cadet_gray: color("#9fa7ad"),
   };
+
+  board = new Board(width, height);
 }
 
 function draw() {
   background(palette.cadet_gray);
+  board.draw();
+  if (!paused) {
+    board.iterate();
+  }
+}
+
+function mouseReleased() {
+  let cell = board.screenToCell(mouseX, mouseY);
+  board.setCell(cell.row, cell.col);
+
+  paused = false;
+
+  // Prevent default behaviour
+  return false;
+}
+
+function mouseDragged() {
+  let cell = board.screenToCell(mouseX, mouseY);
+  board.setCell(cell.row, cell.col);
+
+  paused = true;
+
+  // Prevent default behaviour
+  return false;
+}
+
+function windowResized() {
+  resizeCanvas(parent.clientWidth, parent.clientHeight);
+  board.resize(width, height);
 }
 
 class Board {
   constructor(
+    width,
+    height,
     minRequiredNeighbours = 2,
     maxRequiredNeighbours = 3,
     reproductionThreshold = 3
@@ -32,12 +65,79 @@ class Board {
     this.maxRequiredNeighbours = maxRequiredNeighbours;
     this.reproductionThreshold = reproductionThreshold;
 
-    this.board = zeros(10, 10);
+    this.smallSideNum = 50;
+    this.cellSize = min(width, height) / this.smallSideNum;
+
+    let rows;
+    let cols;
+    if (width < height) {
+      rows = Math.floor(height / this.cellSize);
+      cols = this.smallSideNum;
+    } else {
+      rows = this.smallSideNum;
+      cols = Math.floor(width / this.cellSize);
+    }
+
+    this.currentBoard = initArrayToFalse(rows, cols);
+    this.nextBoard = initArrayToFalse(rows, cols);
   }
 
-  iterate() {}
+  draw() {
+    noStroke();
+    fill(palette.redwood);
+    let spacer = this.cellSize / 10;
 
-  safeSumNeightbours(row, col) {
+    let rows = this.numRows();
+    let cols = this.numCols();
+
+    // Ignore egde cells
+    for (let row = 1; row < rows - 1; row++) {
+      for (let col = 1; col < cols - 1; col++) {
+        let currentCell = this.currentBoard[row][col];
+        if (currentCell) {
+          let x = col * this.cellSize;
+          let y = row * this.cellSize;
+
+          circle(x + spacer, y + spacer, this.cellSize - spacer * 2);
+        }
+      }
+    }
+  }
+
+  iterate() {
+    let rows = this.numRows();
+    let cols = this.numCols();
+
+    // Ignore egde cells
+    for (let row = 1; row < rows - 1; row++) {
+      for (let col = 1; col < cols - 1; col++) {
+        let currentCell = this.currentBoard[row][col];
+        let numAliveNeighbours = this.unsafeNeighbourSum(row, col);
+        if (numAliveNeighbours > 7) console.log(numAliveNeighbours);
+
+        // Apply rules
+        if (currentCell) {
+          if (
+            numAliveNeighbours < this.minRequiredNeighbours ||
+            numAliveNeighbours > this.maxRequiredNeighbours
+          ) {
+            currentCell = false;
+          }
+        } else {
+          if (numAliveNeighbours >= this.reproductionThreshold) {
+            currentCell = true;
+          }
+        }
+
+        this.nextBoard[row][col] = currentCell;
+      }
+    }
+
+    // update board
+    this.currentBoard = this.nextBoard;
+  }
+
+  safeNeighbourSum(row, col) {
     let sum = 0;
     let startRow = row > 0 ? row - 1 : 0;
     let startCol = col > 0 ? col - 1 : 0;
@@ -46,15 +146,16 @@ class Board {
 
     for (let i = startRow; i < endRow; i++) {
       for (let j = startCol; j < endCol; j++) {
-        sum += this.board[i][j];
+        sum += this.currentBoard[i][j];
       }
     }
 
-    sumWithoutSelf = sum - this.board[row][col];
+    let sumWithoutSelf = sum - this.currentBoard[row][col];
     return sumWithoutSelf;
   }
 
-  unsafeSumNeighbours(row, col) {
+  unsafeNeighbourSum(row, col) {
+    let sum = 0;
     let startRow = row - 1;
     let startCol = col - 1;
     let endRow = row + 1;
@@ -62,33 +163,59 @@ class Board {
 
     for (let i = startRow; i < endRow; i++) {
       for (let j = startCol; j < endCol; j++) {
-        sum += this.board[i][j];
+        sum += this.currentBoard[i][j];
       }
     }
 
-    sumWithoutSelf = sum - this.board[row][col];
+    let sumWithoutSelf = sum - this.currentBoard[row][col];
     return sumWithoutSelf;
   }
 
   numRows() {
-    return this.board.length;
+    return this.currentBoard.length;
   }
 
   numCols() {
-    if (this.board.length > 0) return this.board[0].length;
+    if (this.currentBoard.length > 0) return this.currentBoard[0].length;
     else return 0;
   }
 
-  resize() {}
+  screenToCell(x, y) {
+    let row = Math.floor(y / this.cellSize);
+    let col = Math.floor(x / this.cellSize);
+    return { row: row, col: col };
+  }
+
+  setCell(row, col) {
+    this.currentBoard[row][col] = true;
+  }
+
+  resize(width, height) {
+    this.cellSize = min(width, height) / this.smallSideNum;
+
+    let rows;
+    let cols;
+    if (width < height) {
+      rows = Math.floor(height / this.cellSize);
+      cols = this.smallSideNum;
+    } else {
+      rows = this.smallSideNum;
+      cols = Math.floor(width / this.cellSize);
+    }
+
+    this.currentBoard = initArrayToFalse(rows, cols);
+    this.nextBoard = initArrayToFalse(rows, cols);
+  }
 }
 
-function zeros(rows, columns) {
-  let zeroArray = new Array(rows);
+function initArrayToFalse(rows, columns) {
+  let zeroArray = []; // new Array(rows);
   for (let i = 0; i < rows; i++) {
-    let row = new Array(columns);
+    let row = []; // new Array(columns);
     for (let j = 0; j < columns; j++) {
       row.push(false);
     }
     zeroArray.push(row);
   }
+  return zeroArray;
 }
