@@ -5,6 +5,8 @@ let eyeRotation;
 let eyeD;
 let eyeBeam;
 
+let numberOfCircles;
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
@@ -12,7 +14,7 @@ function setup() {
   eyeRotation = 0;
   calcEyeD();
 
-  let numberOfCircles = 100;
+  numberOfCircles = 100;
 
   // Palette
   let redwood = color("#975a47");
@@ -110,6 +112,20 @@ function calcEyeD() {
 function keyTyped() {
   if (key === " ") {
     saveCanvas("monster.png");
+  }
+}
+
+function mouseReleased() {
+  if (colourShapes.length < numberOfCircles) {
+    let redwood = color("#975a47");
+    let ecru = color("#cfaa6e");
+    colourShapes.push(
+      new ColorElement(
+        createVector(mouseX, mouseY),
+        lerpColor(ecru, redwood, random(0, 1))
+      )
+    );
+    greyShapes.shift();
   }
 }
 
