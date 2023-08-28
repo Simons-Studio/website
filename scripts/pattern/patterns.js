@@ -101,14 +101,6 @@ function uniqueCharacters(s) {
   return { uniqueChars: unique, numElements: charIndex };
 }
 
-/*
- * This function will transition the sketch from the splash screen to the sketch
- */
-// function mousePressed() {
-//   if (!activated) resetScreen();
-//   activated = true;
-// }
-
 function startScreen() {
   background(cadet_gray);
   textAlign(CENTER);
