@@ -1,12 +1,15 @@
 const divId = "p5-game-of-life-sketch";
-const parent = document.getElementById(divId);
+const canvasParent = document.getElementById(divId);
 
 let palette;
 let board;
 let paused = true;
 
 function setup() {
-  let canvas = createCanvas(parent.clientWidth, parent.clientHeight);
+  let canvas = createCanvas(
+    canvasParent.clientWidth,
+    canvasParent.clientHeight
+  );
   canvas.parent(divId);
 
   palette = {
@@ -18,6 +21,7 @@ function setup() {
   };
 
   board = new Board(width, height);
+  frameRate(10);
 }
 
 function draw() {
@@ -26,6 +30,10 @@ function draw() {
   if (!paused) {
     board.iterate();
   }
+}
+
+function mousePressed() {
+  paused = true;
 }
 
 function mouseReleased() {
@@ -42,14 +50,12 @@ function mouseDragged() {
   let cell = board.screenToCell(mouseX, mouseY);
   board.setCell(cell.row, cell.col);
 
-  paused = true;
-
   // Prevent default behaviour
   return false;
 }
 
 function windowResized() {
-  resizeCanvas(parent.clientWidth, parent.clientHeight);
+  resizeCanvas(canvasParent.clientWidth, canvasParent.clientHeight);
   board.resize(width, height);
 }
 
@@ -65,7 +71,7 @@ class Board {
     this.maxRequiredNeighbours = maxRequiredNeighbours;
     this.reproductionThreshold = reproductionThreshold;
 
-    this.smallSideNum = 50;
+    this.smallSideNum = 20;
     this.cellSize = min(width, height) / this.smallSideNum;
 
     let rows;
@@ -113,7 +119,6 @@ class Board {
       for (let col = 1; col < cols - 1; col++) {
         let currentCell = this.currentBoard[row][col];
         let numAliveNeighbours = this.unsafeNeighbourSum(row, col);
-        if (numAliveNeighbours > 7) console.log(numAliveNeighbours);
 
         // Apply rules
         if (currentCell) {
@@ -144,8 +149,8 @@ class Board {
     let endRow = row < this.numRows() - 1 ? row + 1 : this.numRows() - 1;
     let endCol = row < this.numCols() - 1 ? col + 1 : this.numCols() - 1;
 
-    for (let i = startRow; i < endRow; i++) {
-      for (let j = startCol; j < endCol; j++) {
+    for (let i = startRow; i <= endRow; i++) {
+      for (let j = startCol; j <= endCol; j++) {
         sum += this.currentBoard[i][j];
       }
     }
@@ -161,8 +166,8 @@ class Board {
     let endRow = row + 1;
     let endCol = col + 1;
 
-    for (let i = startRow; i < endRow; i++) {
-      for (let j = startCol; j < endCol; j++) {
+    for (let i = startRow; i <= endRow; i++) {
+      for (let j = startCol; j <= endCol; j++) {
         sum += this.currentBoard[i][j];
       }
     }
