@@ -1,3 +1,7 @@
+import * as p5 from "https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js";
+
+const parent = document.getElementById("p5-pattern-sketch");
+
 let activated = false;
 let pattern = "";
 let index = 0;
@@ -10,8 +14,6 @@ let ecru = "#cfaa6e";
 let wenge = "#716364";
 let charcoal = "#3d4554";
 let cadet_gray = "#9fa7ad";
-
-const parent = document.getElementById("p5-pattern-sketch");
 
 document.getElementById("pattern-input").addEventListener("input", () => {
   if (!activated) resetScreen();
