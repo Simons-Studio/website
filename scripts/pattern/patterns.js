@@ -18,7 +18,6 @@ document.getElementById("pattern-input").addEventListener("input", () => {
   activated = true;
 
   pattern = document.getElementById("pattern-input").value;
-  console.log(pattern);
   resetScreen();
 });
 
