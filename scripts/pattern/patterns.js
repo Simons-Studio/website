@@ -89,6 +89,7 @@ function windowResized() {
   resetScreen();
 }
 
+// TODO: sanitise
 function uniqueCharacters(s) {
   let charIndex = 0;
   let unique = {};
@@ -106,7 +107,7 @@ function startScreen() {
   textAlign(CENTER);
   textSize(30);
   fill(redwood);
-  text("Add A Pattern", width / 2, height / 2);
+  text("Type A Pattern", width / 2, height / 2);
 
   index = 0;
   frameCountOffset = frameCount;
@@ -116,4 +117,5 @@ function startScreen() {
 function resetScreen() {
   background(cadet_gray);
   pos = { x: width / 2, y: height / 2 };
+  index = 0;
 }
