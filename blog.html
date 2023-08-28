@@ -13,7 +13,10 @@
     <link rel="icon" href="icon.png" type="image/x-icon" />
     <!-- Add additional icons -->
     <link href="styles/default.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"
+      defer
+    ></script>
     <script src="scripts/pattern/patterns.js" defer></script>
   </head>
 
@@ -25,15 +28,15 @@
             <h1 class="home">Simon’s Blog</h1>
           </a>
         </header>
-    
+
         <nav class="nav-elements">
-            <p><a href="#">Portfolio</a></p>
-            <p><a href="#contact-info">Contact</a></p>
-            <p><a href="blog.html">Blog</a></p>
+          <p><a href="#">Portfolio</a></p>
+          <p><a href="#contact-info">Contact</a></p>
+          <p><a href="blog.html">Blog</a></p>
         </nav>
       </div>
 
-      <img class="layer-transition" src="images/layer-transition.svg" alt="">
+      <img class="layer-transition" src="images/layer-transition.svg" alt="" />
     </div>
 
     <main>
@@ -62,17 +65,19 @@
           create from a colourless space, also inspired me to explore the
           opposite effect.
         </p>
-        <iframe 
-            id="p5-monster-sketch"
-            class="p5-canvas" 
-            src="scripts/monster/monster.html" 
-            frameborder="0"
-            height="400"></iframe>
-        </article>
+        <iframe
+          id="p5-monster-sketch"
+          class="p5-canvas"
+          src="scripts/monster/monster.html"
+          frameborder="0"
+          height="400"
+        ></iframe>
+      </article>
 
       <article id="adding-some-structural-elements">
         <h2>
-          <time datetime="2023-08-11">2023-08-11</time>: Adding Some Structual Elements
+          <time datetime="2023-08-11">2023-08-11</time>: Adding Some Structual
+          Elements
         </h2>
         <p>
           This week I have been going through the
@@ -89,7 +94,8 @@
 
       <article id="adding-responsive-images">
         <h2>
-          <time datetime="2023-08-17">2023-08-17</time>: Adding Responsive Images
+          <time datetime="2023-08-17">2023-08-17</time>: Adding Responsive
+          Images
         </h2>
         <p>
           This week I am learning to add images using the
@@ -114,23 +120,23 @@
           <source
             srcset="images/road-to-canberra/road-to-canberra-480px-portrait.jpg"
             media="(orientation: portrait)"
-          >
-          <source 
-            media="(orientation: portrait, min-width: 500px)" 
+          />
+          <source
+            media="(orientation: portrait, min-width: 500px)"
             srcset="images/road-to-canberra-720px-portrait.jpg 720w"
           />
-          <source 
+          <source
             srcset="images/road-to-canberra/road-to-canberra-1920px.jpg"
             media="(min-width: 799px)"
-          >
+          />
           <source
             srcset="images/road-to-canberra/road-to-canberra-720px.jpg"
             media="(max-width: 800px)"
-          >
+          />
           <img
             src="images/road-to-canberra/road-to-canberra-1920px.jpg"
             alt="Tire tracks split a grassy field, forming a road that leading toward a city in the distance."
-          >
+          />
         </picture>
         <p>
           I also added some <abbr title="Cascading Style Sheets">CSS</abbr> into
@@ -144,26 +150,71 @@
           Adding An SVG
         </h2>
         <p>
-          Today I added an <abbr title="Scalable Vector Graphics">SVG</abbr> to the navigation bar in this website. This was to create a nice transition to the content of each page. I was introduced to the tool <a href="https://app.haikei.app">haihei</a> which creates trasitional svgs for websites like this. I learned about this tool from the an excellent <a href="https://youtu.be/lPJVi797Uy0">tutorial</a> on adding curves to websites created by <a href="https://fireship.io/">Jeff Delaney</a>.
+          Today I added an <abbr title="Scalable Vector Graphics">SVG</abbr> to
+          the navigation bar in this website. This was to create a nice
+          transition to the content of each page. I was introduced to the tool
+          <a href="https://app.haikei.app">haihei</a> which creates trasitional
+          svgs for websites like this. I learned about this tool from the an
+          excellent <a href="https://youtu.be/lPJVi797Uy0">tutorial</a> on
+          adding curves to websites created by
+          <a href="https://fireship.io/">Jeff Delaney</a>.
         </p>
         <p>
-          The colours on the website are a colour palette I created for the website using <a href="https://coolors.co">coolors</a>. The website allows users to upload an image and then extract a colour palette from the colours in the image. I use the image of <a href="index.html#self-portrait">myself</a> that is used in the front page of this website.
+          The colours on the website are a colour palette I created for the
+          website using <a href="https://coolors.co">coolors</a>. The website
+          allows users to upload an image and then extract a colour palette from
+          the colours in the image. I use the image of
+          <a href="index.html#self-portrait">myself</a> that is used in the
+          front page of this website.
         </p>
         <p>
-          Finally I leaned about CSS layouts and used the <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox">flexbox layout</a> to style the header above. This allows for the elements in the header to move depending on the width of the browser. 
+          Finally I leaned about CSS layouts and used the
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox"
+            >flexbox layout</a
+          >
+          to style the header above. This allows for the elements in the header
+          to move depending on the width of the browser.
         </p>
       </article>
 
       <article>
         <h2>
-          some text
+          <time datetime="2023-08-28">2023-08-28</time>: Styling p5 Sketches
         </h2>
-        <input type="text" id="pattern-input" placeholder="Add a pattern">
-        <div 
+        <p>
+          Last year I was introduced to <a href="https://p5js.org">p5</a>, a
+          Javascript library for creative coding. I really enjoyed the easy in
+          creating creative artworks that the library enabled. However, I did
+          not know how to insert the sketches that I had created into the
+          <abbr title="Document Object Model">DOM</abbr> of this website. I
+          discovered that I could place them into an empty div and then resize
+          the canvas by referencing this parent div within the script. Then when
+          applying a max width to the sketch it no longer overflowed the div.
+        </p>
+        <p>
+          For the sketch I was inspired to create a pattern visualiser. A friend
+          asked for creative interpretations for the pattern
+          <strong>AABBC</strong>, so I wondered how this pattern could be
+          instructions for moving about a
+          <abbr title="Two Dimentional">2D</abbr> plane. So I created this small
+          JS proof of concept, setting each unique character to a unique
+          direction and then running the pattern like dance instructions. Some
+          good examples to try include:
+        </p>
+        <ul>
+          <li>AABBC</li>
+          <li>PATTERN</li>
+          <li>ABCDEFAB</li>
+          <li>GROTTO</li>
+        </ul>
+        <p>Try it below.</p>
+        <input type="text" id="pattern-input" placeholder="Add a pattern" />
+        <div
           id="p5-pattern-sketch"
           class="p5-canvas"
-          style="height: 400px;">
-        </div>
+          style="height: 400px"
+        ></div>
       </article>
     </main>
 
