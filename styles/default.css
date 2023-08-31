@@ -9,6 +9,10 @@
   --wenge: #716364;
   --charcoal: #3d4554;
   --cadet-gray: #9fa7ad;
+  --black-bean: #32140b;
+  --smoky-black: #110704;
+  --violet-blue: #1a47b7;
+  --cosmic-latte: #f9f2e1;
 
   --xanthous: #ffb53dff;
   --rich-black: #001413ff;
@@ -35,7 +39,7 @@
   --secondary-accent: var(--cerulean);
   --primary-background: var(--charcoal);
   --secondary-background: var(--cadet-gray);
-  --text-colour: var(--baby-powder);
+  --text-colour: white;
 }
 
 body {
