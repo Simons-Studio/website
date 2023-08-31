@@ -1,18 +1,44 @@
 /*
  * I have selected a pallet for the website, 
- * These colours may need tweeking
+ * These colours may need tweaking
  */
 :root {
+  --saffron: #f7c548;
   --redwood: #975a47;
   --ecru: #cfaa6e;
   --wenge: #716364;
   --charcoal: #3d4554;
   --cadet-gray: #9fa7ad;
+
+  --xanthous: #ffb53dff;
+  --rich-black: #001413ff;
+  --blood-red: #700200ff;
+  --baby-powder: #fdfffcff;
+  --chinese-violet: #77567aff;
+
+  --saffron: #e3b505ff;
+  --penn-red: #95190cff;
+  --mint-cream: #f4fffdff;
+  --cerulean: #247ba0ff;
+  --oxford-blue: #011936ff;
+
+  /* CSS HEX */
+  --charcoal: #2f4858ff;
+  --lapis-lazuli: #33658aff;
+  --carolina-blue: #86bbd8ff;
+  --hunyadi-yellow: #f6ae2dff;
+  --orange-pantone: #f26419ff;
+
+  --primary-accent: var(--xanthous);
+  --secondary-accent: var(--blood-red);
+  --tertiary-accent: var(--cerulean);
+  --primary-background: var(--rich-black);
+  --secondary-background: var(--baby-powder);
 }
 
 body {
   margin: 0;
-  background-color: var(--charcoal);
+  background-color: var(--primary-background);
   color: white;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -23,29 +49,37 @@ article {
   max-width: 600px;
 }
 
-.topbar {
-  margin: 1em;
-}
-
 .nav-bar {
-  background-color: var(--redwood);
+  background-color: var(--primary-accent);
   display: flex;
   flex-flow: row wrap;
   align-items: center;
   justify-content: space-around;
   width: auto;
-  border-radius: 1rem 1rem 0 0;
+  /* border-radius: 1rem 1rem 0 0; */
 }
 
-header a {
+.nav-bar-attach-top {
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+/* Use this for mobile */
+.nav-bar-attach-bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Header text positioning */
+header a,
+header h1 {
   color: var(--ecru);
   text-decoration: none;
-}
-
-header h1 {
   padding: 0.5em;
-  padding-bottom: 0.4em;
-  padding-top: 0.6em;
+  /* padding-bottom: 0.5em;
+  padding-top: 0.5em; */
   border-radius: 2em;
 }
 
@@ -74,7 +108,7 @@ header h1:hover {
 }
 
 /* TODO: This rule seems wrong */
-.nav-bar a:link, 
+.nav-bar a:link,
 .nav-bar a:visited,
 .nav-bar a:focus,
 .nav-bar a:hover,
@@ -126,7 +160,9 @@ a:visited {
   color: var(--cadet-gray);
 }
 
-a:focus, a:hover, a:active {
+a:focus,
+a:hover,
+a:active {
   text-decoration: dashed;
   background: var(--redwood);
 }
