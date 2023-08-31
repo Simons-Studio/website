@@ -29,17 +29,20 @@
   --hunyadi-yellow: #f6ae2dff;
   --orange-pantone: #f26419ff;
 
-  --primary-accent: var(--xanthous);
-  --secondary-accent: var(--blood-red);
+  --primary-colour: var(--redwood);
+  --secondary-colour: var(--cerulean);
+  --primary-accent: var(--ecru);
+  --secondary-accent: var(--wenge);
   --tertiary-accent: var(--cerulean);
-  --primary-background: var(--rich-black);
-  --secondary-background: var(--baby-powder);
+  --primary-background: var(--charcoal);
+  --secondary-background: var(--cadet-gray);
+  --text-colour: var(--baby-powder);
 }
 
 body {
   margin: 0;
   background-color: var(--primary-background);
-  color: white;
+  color: var(--text-colour);
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -50,7 +53,7 @@ article {
 }
 
 .nav-bar {
-  background-color: var(--primary-accent);
+  background-color: var(--primary-colour);
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -75,7 +78,7 @@ article {
 /* Header text positioning */
 header a,
 header h1 {
-  color: var(--ecru);
+  color: var(--primary-accent);
   text-decoration: none;
   padding: 0.5em;
   /* padding-bottom: 0.5em;
@@ -84,7 +87,7 @@ header h1 {
 }
 
 header h1:hover {
-  background-color: var(--wenge);
+  background-color: var(--secondary-colour);
 }
 
 .nav-elements {
@@ -94,7 +97,7 @@ header h1:hover {
 }
 
 .nav-elements p {
-  border: 0.1em solid white;
+  border: 0.1em solid var(--text-colour);
   border-radius: 2em;
   padding: 0.5em;
   padding-bottom: 0.4em;
@@ -104,7 +107,7 @@ header h1:hover {
 
 .nav-bar p:hover,
 .nav-bar p:active {
-  background-color: var(--wenge);
+  background-color: var(--secondary-colour);
 }
 
 /* TODO: This rule seems wrong */
@@ -114,8 +117,8 @@ header h1:hover {
 .nav-bar a:hover,
 .nav-bar a:active {
   text-decoration: none;
-  color: white;
-  background: #00000000;
+  color: var(--text-colour);
+  background: none;
 }
 
 .layer-transition {
@@ -126,8 +129,8 @@ header h1:hover {
 }
 
 h2 {
-  color: white;
-  background-color: var(--wenge);
+  color: var(--text-colour);
+  background-color: var(--secondary-colour);
   padding: 0.5em;
   padding-bottom: 0.4em;
   padding-top: 0.6em;
@@ -153,18 +156,18 @@ img {
 
 /* Links */
 a:link {
-  color: var(--ecru);
+  color: var(--primary-accent);
 }
 
 a:visited {
-  color: var(--cadet-gray);
+  color: var(--secondary-accent);
 }
 
 a:focus,
 a:hover,
 a:active {
   text-decoration: dashed;
-  background: var(--redwood);
+  background: none;
 }
 
 /* Text for pattern */
@@ -176,7 +179,7 @@ a:active {
   max-width: 600px;
   margin: 1ex 0ex 1ex 0ex;
   border-radius: 2rem;
-  border: white solid 0.2em;
+  border: var(--text-colour) solid 0.2em;
 
   padding-inline: 0.5em;
   padding-bottom: 0.4em;
@@ -184,7 +187,7 @@ a:active {
 
   width: 100%;
   background: none;
-  color: white;
+  color: var(--text-colour);
   overflow-wrap: break-word;
   font-family: inherit;
 }
@@ -192,7 +195,7 @@ a:active {
 #pattern-input:focus,
 #pattern-input:hover {
   outline: none;
-  border: var(--redwood) solid 0.2em;
+  border: var(--primary-colour) solid 0.2em;
 }
 
 footer {
