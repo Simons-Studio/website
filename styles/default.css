@@ -16,7 +16,7 @@
   --baby-powder: #fdfffcff;
   --chinese-violet: #77567aff;
 
-  --saffron: #e3b505ff;
+  /* --saffron: #e3b505ff; */
   --penn-red: #95190cff;
   --mint-cream: #f4fffdff;
   --cerulean: #247ba0ff;
@@ -30,10 +30,9 @@
   --orange-pantone: #f26419ff;
 
   --primary-colour: var(--redwood);
-  --secondary-colour: var(--cerulean);
-  --primary-accent: var(--ecru);
-  --secondary-accent: var(--wenge);
-  --tertiary-accent: var(--cerulean);
+  --secondary-colour: var(--wenge);
+  --primary-accent: var(--saffron);
+  --secondary-accent: var(--cerulean);
   --primary-background: var(--charcoal);
   --secondary-background: var(--cadet-gray);
   --text-colour: var(--baby-powder);
@@ -86,8 +85,10 @@ header h1 {
   border-radius: 2em;
 }
 
+header h1:focus,
 header h1:hover {
-  background-color: var(--secondary-colour);
+  color: var(--primary-colour);
+  background-color: var(--primary-accent);
 }
 
 .nav-elements {
