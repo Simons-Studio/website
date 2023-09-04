@@ -99,6 +99,8 @@ header h1:hover {
 nav {
   display: flex;
   flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
   list-style: none;
 }
 
@@ -132,6 +134,12 @@ nav p {
   #header-nav {
     visibility: hidden;
     display: none;
+  }
+
+  #navigation-menu-button {
+    width: 2rem;
+    height: 2rem;
+    background: var(--primary-accent);
   }
 
   #expansion-menu {
