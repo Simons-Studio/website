@@ -11,15 +11,35 @@
     <link rel="icon" href="icon.png" type="image/x-icon" />
     <!-- Add additional icons -->
     <link href="styles/default.css" rel="stylesheet" />
+    <script src="scripts/functionality/default.js" defer></script>
   </head>
 
   <body>
-    <header id="header" class="nav-bar nav-bar-attach-top">
+    <header id="header" class="nav-bar">
       <a href="index.html">
-        <h1 class="home">Simon</h1>
+        <h1 id="logo">SIMON</h1>
       </a>
 
-      <nav class="nav-elements">
+      <nav id="header-nav">
+        <p><a href="#">Portfolio</a></p>
+        <p><a href="#contact-info">Contact</a></p>
+        <p><a href="blog.html">Blog</a></p>
+      </nav>
+
+      <div id="navigation-menu-button">
+        <input
+          type="checkbox"
+          name="navigation-menu-input"
+          id="navigation-menu-input"
+        />
+        <label
+          id="navigation-menu-skin"
+          class=""
+          for="navigation-menu-input"
+        ></label>
+      </div>
+
+      <nav id="expansion-menu" class="below">
         <p><a href="#">Portfolio</a></p>
         <p><a href="#contact-info">Contact</a></p>
         <p><a href="blog.html">Blog</a></p>
