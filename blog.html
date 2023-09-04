@@ -13,7 +13,7 @@
     <link rel="icon" href="icon.png" type="image/x-icon" />
     <!-- Add additional icons -->
     <link href="styles/default.css" rel="stylesheet" />
-    <!-- <script src="scripts/functionality/default.js" defer></script> -->
+    <script src="scripts/functionality/default.js" defer></script>
     <script
       src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"
       defer
@@ -27,7 +27,7 @@
         <h1 class="home">Simon</h1>
       </a>
 
-      <nav class="nav-elements">
+      <nav id="header-nav">
         <p><a href="#">Portfolio</a></p>
         <p><a href="#contact-info">Contact</a></p>
         <p><a href="blog.html">Blog</a></p>
@@ -39,8 +39,8 @@
         id="navigation-menu-button"
       />
 
-      <label id="sidebar-menu" for="navigation-menu-button">
-        <nav id="nav-sidebar">
+      <label id="expansion-menu" class="" for="navigation-menu-button">
+        <nav id="expansion-nav">
           <p><a href="#">Portfolio</a></p>
           <p><a href="#contact-info">Contact</a></p>
           <p><a href="blog.html">Blog</a></p>
