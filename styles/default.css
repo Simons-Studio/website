@@ -95,6 +95,7 @@ header h1:hover {
   background-color: var(--primary-accent);
 }
 
+/* Navigation menu */
 .nav-elements {
   display: flex;
   flex-flow: row wrap;
@@ -124,6 +125,30 @@ header h1:hover {
   text-decoration: none;
   color: var(--text-colour);
   background: none;
+}
+
+#sidebar-menu {
+  visibility: hidden;
+  display: flex;
+  background: var(--secondary-accent);
+  max-height: 0;
+  width: 100%;
+  overflow: hidden;
+  transition-property: all;
+  /* transition-delay: 0.1s; */
+  transition-duration: 0.5s;
+}
+
+#sidebar-menu #nav-sidebar {
+}
+
+#navigation-menu-button:checked + #sidebar-menu {
+  visibility: visible;
+  /* display: flex; */
+  max-height: 100vh;
+}
+
+#navigation-menu-button:checked + #sidebar-menu #nav-sidebar {
 }
 
 .layer-transition {
@@ -165,7 +190,7 @@ a:link {
 }
 
 a:visited {
-  color: var(--secondary-accent);
+  color: var(--secondary-colour);
 }
 
 a:focus,
