@@ -17,7 +17,7 @@ let topBar = document.getElementById("topbar");
 // };
 
 document
-  .getElementById("navigation-menu-button")
+  .getElementById("navigation-menu-input")
   .addEventListener("change", function (e) {
     let expandableNavMenu = document.getElementById("expansion-menu");
     toggleDivExpansion(expandableNavMenu, this.checked);
