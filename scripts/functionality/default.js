@@ -1,20 +1,17 @@
-let topBar = document.getElementById("topbar");
-// let sticky = topBar.offsetTop;
+let header = document.getElementById("header");
+let headerHeight = header.clientHeight;
+window.onscroll = () => positionHeader();
 
-// function positionHeader() {
-//   if (window.scrollY > sticky + topBar.clientHeight) {
-//     console.log(sticky);
-//     topBar.classList.add("nav-bar-attach-bottom");
-//     // topBar.classList.remove('nav-bar-attach-top');
-//   } else {
-//     topBar.classList.remove("nav-bar-attach-bottom");
-//     // topBar.classList.add('nav-bar-attach-top');
-//   }
-// }
-
-// window.onscroll = function () {
-//   positionHeader();
-// };
+function positionHeader() {
+  let distBottomHeadertoScreenTop = window.scrollY - headerHeight;
+  if (distBottomHeadertoScreenTop > 0 && screen.width < 600) {
+    header.classList.add("nav-bar-attach-bottom");
+    let headerPeak = min(distBottomHeadertoScreenTop - headerHeight, 0);
+    header.style.bottom = headerPeak + "px";
+  } else {
+    header.classList.remove("nav-bar-attach-bottom");
+  }
+}
 
 document
   .getElementById("navigation-menu-input")

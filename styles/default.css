@@ -61,21 +61,14 @@ header {
   flex-flow: row wrap;
   align-items: center;
   justify-content: space-around;
-  width: auto;
-  /* border-radius: 1rem 1rem 0 0; */
-}
-
-.nav-bar-attach-top {
-  position: sticky;
-  top: 0;
   width: 100%;
+  /* border-radius: 1rem 1rem 0 0; */
 }
 
 /* Use this for mobile */
 .nav-bar-attach-bottom {
   position: fixed;
   bottom: 0;
-  width: 100%;
 }
 
 /* Header text positioning */
@@ -136,20 +129,31 @@ nav p {
     display: none;
   }
 
-  /* #hamburger-button {
-    background-color: var(--primary-accent);
-  } */
-
-  /* Remove default checkbox appearance */
-  #navigation-menu-input {
-    margin: 0;
-    padding: 0;
-    width: 0;
-    height: 0;
-    appearance: none;
+  #navigation-menu-button {
+    /* background-color: var(--primary-accent); */
   }
 
   #navigation-menu-button::before {
+    /* background-color: var(--primary-accent); */
+  }
+
+  /* Remove default checkbox appearance */
+  #navigation-menu-input {
+    display: none;
+  }
+
+  #navigation-menu-input + label {
+    display: block;
+    position: relative;
+    width: 3em;
+    height: 1.6em;
+    border: var(--primary-accent) dashed 0.2em;
+    border-radius: 2em;
+    background-color: var(--secondary-accent);
+  }
+
+  #navigation-menu-input:checked + label {
+    border: var(--secondary-accent) dashed 0.2em;
     background-color: var(--primary-accent);
   }
 
@@ -166,6 +170,11 @@ nav p {
 
 /* Large screen nav layout */
 @media screen and (min-width: 600px) {
+  header {
+    position: sticky;
+    top: 0;
+  }
+
   #navigation-menu-button {
     visibility: hidden;
     display: none;
