@@ -55,7 +55,7 @@ article {
   max-width: 600px;
 }
 
-.nav-bar {
+header {
   background-color: var(--primary-colour);
   display: flex;
   flex-flow: row wrap;
@@ -96,13 +96,13 @@ header h1:hover {
 }
 
 /* Navigation menu */
-.nav-elements {
+nav {
   display: flex;
   flex-flow: row wrap;
   list-style: none;
 }
 
-.nav-elements p {
+nav p {
   border: 0.1em solid var(--text-colour);
   border-radius: 2em;
   padding: 0.5em;
@@ -127,28 +127,35 @@ header h1:hover {
   background: none;
 }
 
-#sidebar-menu {
-  visibility: hidden;
-  display: flex;
-  background: var(--secondary-accent);
-  max-height: 0;
-  width: 100%;
-  overflow: hidden;
-  transition-property: all;
-  /* transition-delay: 0.1s; */
-  transition-duration: 0.5s;
+/* Small screen Nav layout */
+@media screen and (max-width: 599px) {
+  #header-nav {
+    visibility: hidden;
+    display: none;
+  }
+
+  #expansion-menu {
+    visibility: hidden;
+    display: flex;
+    background: var(--secondary-accent);
+    max-height: 0px;
+    width: 100%;
+    overflow: hidden;
+    transition: 0.5s ease;
+  }
 }
 
-#sidebar-menu #nav-sidebar {
-}
+/* Large screen nav layout */
+@media screen and (min-width: 600px) {
+  #navigation-menu-button {
+    visibility: hidden;
+    display: none;
+  }
 
-#navigation-menu-button:checked + #sidebar-menu {
-  visibility: visible;
-  /* display: flex; */
-  max-height: 100vh;
-}
-
-#navigation-menu-button:checked + #sidebar-menu #nav-sidebar {
+  #expansion-menu {
+    visibility: hidden;
+    display: none;
+  }
 }
 
 .layer-transition {
