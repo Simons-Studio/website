@@ -22,7 +22,7 @@
   </head>
 
   <body>
-    <header id="header" class="nav-bar nav-bar-attach-top">
+    <header id="header" class="nav-bar">
       <a href="index.html">
         <h1 class="home">Simon</h1>
       </a>
@@ -33,15 +33,20 @@
         <p><a href="blog.html">Blog</a></p>
       </nav>
 
-      <div id="hamburger-button">
+      <div id="navigation-menu-button">
         <input
           type="checkbox"
           name="navigation-menu-input"
           id="navigation-menu-input"
         />
+        <label
+          id="navigation-menu-skin"
+          class=""
+          for="navigation-menu-input"
+        ></label>
       </div>
 
-      <nav id="expansion-menu">
+      <nav id="expansion-menu" class="below">
         <p><a href="#">Portfolio</a></p>
         <p><a href="#contact-info">Contact</a></p>
         <p><a href="blog.html">Blog</a></p>
