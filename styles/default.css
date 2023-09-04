@@ -62,6 +62,7 @@ header {
   align-items: center;
   justify-content: space-around;
   width: 100%;
+  height: auto;
   /* border-radius: 1rem 1rem 0 0; */
 }
 
@@ -72,18 +73,18 @@ header {
 }
 
 /* Header text positioning */
-header a,
-header h1 {
+header #logo {
   color: var(--primary-accent);
   text-decoration: none;
   padding: 0.5em;
-  /* padding-bottom: 0.5em;
-  padding-top: 0.5em; */
+  padding-bottom: 0.1em;
+  padding-top: 0.4em;
   border-radius: 2em;
+  margin: 0.1em;
 }
 
-header h1:focus,
-header h1:hover {
+header #logo:focus,
+header #logo:hover {
   color: var(--primary-colour);
   background-color: var(--primary-accent);
 }
