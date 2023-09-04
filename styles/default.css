@@ -66,12 +66,6 @@ header {
   /* border-radius: 1rem 1rem 0 0; */
 }
 
-/* Use this for mobile */
-.nav-bar-attach-bottom {
-  position: fixed;
-  bottom: 0;
-}
-
 /* Header text positioning */
 header #logo {
   color: var(--primary-accent);
@@ -130,12 +124,13 @@ nav p {
     display: none;
   }
 
-  #navigation-menu-button {
-    /* background-color: var(--primary-accent); */
+  .nav-bar-attach-bottom {
+    position: fixed;
+    bottom: 0;
   }
 
-  #navigation-menu-button::before {
-    /* background-color: var(--primary-accent); */
+  .nav-bar-attach-bottom #expansion-menu {
+    order: -1;
   }
 
   /* Remove default checkbox appearance */
@@ -146,16 +141,16 @@ nav p {
   #navigation-menu-input + label {
     display: block;
     position: relative;
-    width: 3em;
-    height: 1.6em;
+    width: 2em;
+    height: 2em;
     border: var(--primary-accent) dashed 0.2em;
-    border-radius: 2em;
-    background-color: var(--secondary-accent);
+    background: url(/images/hamburger-menu-icon.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 
   #navigation-menu-input:checked + label {
     border: var(--secondary-accent) dashed 0.2em;
-    background-color: var(--primary-accent);
   }
 
   #expansion-menu {
@@ -166,6 +161,10 @@ nav p {
     width: 100%;
     overflow: hidden;
     transition: 0.5s ease;
+  }
+
+  footer {
+    padding-bottom: 3em;
   }
 }
 
