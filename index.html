@@ -12,7 +12,8 @@
     <!-- Add facebook and X previews -->
     <link rel="icon" href="icon.png" type="image/x-icon" />
     <!-- Add additional icons -->
-    <link href="styles/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/default.css" />
+    <link rel="stylesheet" href="styles/main-page.css" />
     <script src="scripts/functionality/default.js" defer></script>
   </head>
 
@@ -50,13 +51,19 @@
 
     <main>
       <div id="hero-page">
-        <h1>Your Next Hire</h1>
-        <p>
-          Hi. I am Simon. I am a computer scientist graduate, looking to begin
-          work in the industry that I love. To aid in this i am going to host
-          some of my personal projects here.
-        </p>
-        <picture id="self-portrait">
+        <div class="section-1">
+          <h1>
+            <span>Your Next &gt;</span>
+            <span class="">&lt;Hire</span>
+          </h1>
+          <p>
+            Hi. I am Simon. I am a computer scientist graduate, looking to begin
+            work in the industry that I love. To aid in this i am going to host
+            some of my personal projects here.
+          </p>
+        </div>
+
+        <picture id="self-portrait" class="section-2">
           <source
             media="(min-width: 1440px)"
             srcset="images/simon-portrait/simon-1440px-portrait.png"
@@ -75,18 +82,49 @@
             alt="Simon is wearing a yellow hoodie, standing against a red brick wall. Above him a blue sign reads: Bennett's Lane"
           />
         </picture>
-        <p>
-          <!-- TODO -->
-          TODO:
-        </p>
-        <ul>
-          <li>fix the footer</li>
-          <li>fill out this website</li>
-          <li>map building web app</li>
-          <li>wizard web game</li>
-          <li>add some audio and video for testing</li>
-        </ul>
+
+        <div class="section-3">
+          <section>
+            <h2>Point 1</h2>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam
+              obcaecati, aliquam fugiat amet alias, labore unde rerum eaque
+              distinctio molestias sapiente hic? Laborum aperiam dolor ipsum eum
+              explicabo ad maiores.
+            </p>
+          </section>
+          <section>
+            <h2>Point 2</h2>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam
+              obcaecati, aliquam fugiat amet alias, labore unde rerum eaque
+              distinctio molestias sapiente hic? Laborum aperiam dolor ipsum eum
+              explicabo ad maiores.
+            </p>
+          </section>
+          <section>
+            <h2>Point 3</h2>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam
+              obcaecati, aliquam fugiat amet alias, labore unde rerum eaque
+              distinctio molestias sapiente hic? Laborum aperiam dolor ipsum eum
+              explicabo ad maiores.
+            </p>
+          </section>
+        </div>
       </div>
+
+      <p>
+        <!-- TODO -->
+        TODO:
+      </p>
+      <ul>
+        <li>fix the footer</li>
+        <li>fill out this website</li>
+        <li>map building web app</li>
+        <li>wizard web game</li>
+        <li>add some audio and video for testing</li>
+      </ul>
 
       <aside></aside>
     </main>
