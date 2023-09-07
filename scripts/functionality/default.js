@@ -5,11 +5,12 @@ window.onscroll = () => positionHeader();
 let navigationButton = document.getElementById("navigation-menu-input");
 let expandableNavMenu = document.getElementById("expansion-menu");
 
-// TODO: Smooth out menu transition
 function positionHeader() {
+  // TODO: move this check elsewhere; in fact this might not be needed
   if (screen.width < 600) {
     let distBottomHeadertoScreenTop = window.scrollY - headerHeight;
     if (distBottomHeadertoScreenTop > 0) {
+      // Determine if vertical menu transition occurs
       if (!header.classList.contains("nav-bar-attach-bottom")) {
         header.classList.add("nav-bar-attach-bottom");
         navigationButton.checked = false;
@@ -17,9 +18,11 @@ function positionHeader() {
         toggleDivExpansion(expandableNavMenu, false);
         expandableNavMenu.style.display = "flex";
       }
+      // slide header into view
       let headerPeak = min(distBottomHeadertoScreenTop - headerHeight, 0);
       header.style.bottom = headerPeak + "px";
     } else {
+      // Determine if vertical menu transition occurs
       if (header.classList.contains("nav-bar-attach-bottom")) {
         header.classList.remove("nav-bar-attach-bottom");
         navigationButton.checked = false;
