@@ -193,15 +193,6 @@ nav p {
   border-radius: 0;
 }
 
-h2 {
-  color: var(--text-colour);
-  background-color: var(--secondary-colour);
-  padding: 0.5em;
-  padding-bottom: 0.4em;
-  padding-top: 0.6em;
-  border-radius: 0.5em;
-}
-
 img {
   max-width: 600px;
   width: 100%;
