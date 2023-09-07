@@ -1,0 +1,11 @@
+pre {
+  margin: 1em;
+  padding: 0.5em;
+  background: black;
+  border-radius: 0.5em;
+}
+
+code {
+  margin: 0;
+  padding: 0;
+}
