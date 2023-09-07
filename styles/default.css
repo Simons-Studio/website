@@ -150,7 +150,7 @@ nav p {
   }
 
   #navigation-menu-input:checked + label {
-    border: var(--secondary-accent) dashed 0.2em;
+    border-color: var(--secondary-accent);
   }
 
   #expansion-menu {
