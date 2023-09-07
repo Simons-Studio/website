@@ -1,4 +1,60 @@
+#hero-page h1 span:last-child {
+  color: var(--primary-accent);
+}
+
+#hero-page section {
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+#hero-page .highlight {
+  background-color: var(--secondary-colour);
+}
+
 @media screen and (max-width: 599px) {
 }
 @media screen and (min-width: 600px) {
+  #hero-page h1 {
+    font-size: 400%;
+    font-weight: 900;
+  }
+
+  #hero-page {
+    width: 80%;
+    max-height: 70vh;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 2rem;
+    display: flex;
+    flex-flow: row;
+  }
+
+  #hero-page .main-pitch {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #hero-page picture {
+    max-width: 600px;
+    max-height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  #hero-page img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 1rem;
+    background-color: black;
+  }
+
+  #hero-page .points {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
