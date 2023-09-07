@@ -12,7 +12,9 @@ function positionHeader() {
     if (!header.classList.contains("nav-bar-attach-bottom")) {
       header.classList.add("nav-bar-attach-bottom");
       navigationButton.checked = false;
+      expandableNavMenu.style.display = "none";
       toggleDivExpansion(expandableNavMenu, false);
+      expandableNavMenu.style.display = "flex";
     }
     let headerPeak = min(distBottomHeadertoScreenTop - headerHeight, 0);
     header.style.bottom = headerPeak + "px";
@@ -20,7 +22,9 @@ function positionHeader() {
     if (header.classList.contains("nav-bar-attach-bottom")) {
       header.classList.remove("nav-bar-attach-bottom");
       navigationButton.checked = false;
+      expandableNavMenu.style.display = "none";
       toggleDivExpansion(expandableNavMenu, false);
+      expandableNavMenu.style.display = "flex";
     }
   }
 }
