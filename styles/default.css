@@ -209,16 +209,6 @@ img {
   border-radius: 1rem;
 }
 
-/* p5 scketches */
-.p5-canvas {
-  max-width: 600px;
-  width: 100%;
-  border-radius: 1rem;
-  overflow: hidden;
-  padding: 0;
-  margin: 0;
-}
-
 /* Links */
 a:link {
   color: var(--primary-accent);
@@ -233,34 +223,6 @@ a:hover,
 a:active {
   text-decoration: dashed;
   background: none;
-}
-
-/* Text for pattern */
-#pattern-input {
-  appearance: none;
-
-  box-sizing: border-box;
-
-  max-width: 600px;
-  margin: 1ex 0ex 1ex 0ex;
-  border-radius: 2rem;
-  border: var(--text-colour) solid 0.2em;
-
-  padding-inline: 0.5em;
-  padding-bottom: 0.4em;
-  padding-top: 0.6em;
-
-  width: 100%;
-  background: none;
-  color: var(--text-colour);
-  overflow-wrap: break-word;
-  font-family: inherit;
-}
-
-#pattern-input:focus,
-#pattern-input:hover {
-  outline: none;
-  border: var(--primary-colour) solid 0.2em;
 }
 
 footer {
