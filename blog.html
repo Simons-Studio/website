@@ -13,6 +13,7 @@
     <link rel="icon" href="icon.png" type="image/x-icon" />
     <!-- Add additional icons -->
     <link href="styles/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/blog-style.css" />
     <script src="scripts/functionality/default.js" defer></script>
     <script
       src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"
@@ -253,10 +254,10 @@
         <p>
           The initial header for the website before this refactor included the
           navigational items in a simple flexbox list. The problem was that the
-          header for this website was taking up almost 1/4 of the vertical space
-          on a mobile screen. In addition to this I was experimenting with a
-          sticky header meaning that 1/4 of the screen was always being taken by
-          a header.
+          header for this website was taking up almost a quater of the vertical
+          space on a mobile screen. In addition to this I was experimenting with
+          a sticky header meaning that a quater of the screen was always being
+          taken by a header.
         </p>
         <!-- Todo: Add an example -->
         <p>
@@ -267,13 +268,50 @@
           the header.
         </p>
         <p>
-          The <a href="">checkbox</a> seemed the best HTML element to implement
-          the toggling display of the navigation menu, having the associated
-          <a href="">:checked</a> <a href="">pseudoclass</a>. This was great for
-          the ability to change the display type of an associated HTML element
-          with just simple CSS.
+          The
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input/checkbox"
+            >checkbox</a
+          >
+          seemed the best HTML element to implement the toggling display of the
+          navigation menu, having the associated
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes#checked"
+            >checked pseudo-class</a
+          >. This was great for the ability to change the display type of an
+          associated HTML element with just simple CSS.
         </p>
         <!-- TODO: Add an example -->
+        <code>
+          <pre>
+&lt;input type=“checkbox” id=“checkbox”&gt;
+&lt;label for=“checkbox”&gt;&lt;/label&gt;</pre
+          >
+        </code>
+
+        <code>
+          <pre>
+label {
+  display: none;
+}
+label:checked {
+  display: block;
+}
+</pre
+          >
+        </code>
+        <p>
+          So the menu worked and the flex box layout of the header expanded to
+          contain the menu as required. But there was no animation, which meant
+          a jarring appearance of the menu. Having the menu start from a height
+          of zero then grow worked, but meant that the height of the menu had to
+          be set manually. Thus, any changes to the menu will break the menu
+          layout. To solve this I created a small JS function tied to the
+          checkbox that collected the calculated height of the menu and then
+          placed this in the style of the element resulting in a smooth
+          transition.
+        </p>
+        <!-- TODO: Talk about placing the header at the bottom of the page -->
       </article>
     </main>
 
