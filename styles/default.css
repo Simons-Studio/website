@@ -66,7 +66,7 @@ header {
   justify-content: space-around;
   width: 100%;
   height: auto;
-  /* border-radius: 1rem 1rem 0 0; */
+  border-bottom: 0.1em solid var(--primary-accent);
 }
 
 /* Header text positioning */
@@ -130,6 +130,8 @@ nav p {
   .nav-bar-attach-bottom {
     position: fixed;
     bottom: 0;
+    border-bottom: none;
+    border-top: 0.1em solid var(--primary-accent);
   }
 
   .nav-bar-attach-bottom #expansion-menu {
