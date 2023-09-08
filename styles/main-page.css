@@ -232,6 +232,10 @@
     margin: 1em;
   }
 
+  #hero-page section {
+    width: 100%;
+  }
+
   /* Skill Page */
   #skill-page .content-wrapper {
     display: grid;
