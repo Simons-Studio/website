@@ -1,4 +1,4 @@
-#hero-page h1 span:last-child {
+#hero-page h1 span.parentheses {
   color: var(--primary-accent);
 }
 
@@ -9,6 +9,117 @@
 
 #hero-page .highlight {
   background-color: var(--secondary-colour);
+}
+
+#title-scroll-wrapper {
+  font-family: monospace;
+  margin: 0;
+}
+
+.left {
+  margin-right: -0.5em;
+}
+
+.right {
+  margin-left: -0.5em;
+}
+
+.text-scroll-container {
+  /* border: 5px dashed var(--primary-accent); */
+  display: inline-block;
+  vertical-align: text-bottom;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0em;
+  animation: container-width 10s linear 0.5s infinite;
+}
+
+/* Job word transform animation */
+#heading-scroll {
+  /* background: black; */
+  display: inline-block;
+  vertical-align: text-bottom;
+  position: relative;
+  overflow: hidden;
+  padding-left: 0.1em;
+  animation: text-position 10s linear 0.5s infinite;
+}
+
+.job-type {
+  text-transform: lowercase;
+}
+
+#developer-title {
+}
+
+@keyframes container-width {
+  0% {
+    width: 0em;
+  }
+  15% {
+    width: 6em;
+  }
+  25% {
+    width: 6em;
+  }
+  30% {
+    width: 0em;
+  }
+  33% {
+    width: 0em;
+  }
+
+  48% {
+    width: 5.5em;
+  }
+  58% {
+    width: 5.5em;
+  }
+  63% {
+    width: 0em;
+  }
+  66% {
+    width: 0em;
+  }
+
+  81% {
+    width: 3.2em;
+  }
+  91% {
+    width: 3.2em;
+  }
+  96% {
+    width: 0em;
+  }
+  100% {
+    width: 0em;
+  }
+}
+
+@keyframes text-position {
+  0% {
+    transform: translate(0rem);
+  }
+  30% {
+    transform: translate(0rem);
+  }
+  33% {
+    transform: translate(-6.6em);
+  }
+
+  63% {
+    transform: translate(-6.6em);
+  }
+  66% {
+    transform: translate(-12.6em);
+  }
+
+  96% {
+    transform: translate(-12.6em);
+  }
+  100% {
+    transform: translate(0rem);
+  }
 }
 
 @media screen and (max-width: 599px) {
