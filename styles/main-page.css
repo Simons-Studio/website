@@ -81,6 +81,17 @@
   padding: 1rem;
 }
 
+.page {
+  box-sizing: border-box;
+  width: 100%;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+#skill-page {
+  background-color: var(--secondary-background);
+}
+
 /* Animations */
 @keyframes container-width {
   0% {
@@ -155,8 +166,8 @@
 /* TODO: Small screen layout */
 @media screen and (max-width: 599px) {
   .page {
-    width: 90%;
-    margin: auto;
+    padding-left: 5%;
+    padding-right: 5%;
   }
 
   #hero-page h1 {
@@ -222,7 +233,7 @@
   }
 
   /* Skill Page */
-  #skill-page {
+  #skill-page .content-wrapper {
     display: grid;
     grid-template-columns: auto auto auto;
     grid-template-rows: auto auto;
@@ -252,7 +263,8 @@
 
 @media screen and (max-width: 1199px) and (min-width: 600px) {
   .page {
-    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
   }
 
   #hero-page h1 {
@@ -275,7 +287,8 @@
 
 @media screen and (min-width: 1200px) {
   .page {
-    width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
   }
 
   #hero-page h1 {
@@ -290,8 +303,4 @@
   #hero-page .points {
     flex-direction: column;
   }
-}
-
-.page {
-  margin-bottom: 5rem;
 }
