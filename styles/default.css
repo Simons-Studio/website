@@ -120,6 +120,11 @@ nav p {
   background: none;
 }
 
+footer {
+  padding: 1em;
+  background-color: var(--primary-colour);
+}
+
 /* Small screen Nav layout */
 @media screen and (max-width: 599px) {
   #header-nav {
@@ -168,7 +173,7 @@ nav p {
   }
 
   footer {
-    padding-bottom: 3em;
+    padding-bottom: 4em;
   }
 }
 
@@ -218,10 +223,6 @@ a:hover,
 a:active {
   text-decoration: dashed;
   background: none;
-}
-
-footer {
-  margin: 1em;
 }
 
 /* Generic Classes */
