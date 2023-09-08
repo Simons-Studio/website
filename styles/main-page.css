@@ -62,13 +62,17 @@
 }
 
 #engineer-title {
-  background: linear-gradient(90deg, var(--penn-red), var(--redwood));
+  background: linear-gradient(
+    90deg,
+    var(--carolina-blue),
+    var(--secondary-accent)
+  );
   background-clip: text;
   color: transparent;
 }
 
 #hire-title {
-  background: linear-gradient(90deg, var(--cadet-gray), var(--carolina-blue));
+  background: linear-gradient(90deg, var(--saffron), var(--xanthous));
   background-clip: text;
   color: transparent;
 }
