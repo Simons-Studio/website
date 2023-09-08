@@ -88,6 +88,12 @@
   padding-bottom: 2.5rem;
 }
 
+.page h2 {
+  background: linear-gradient(90deg, var(--saffron), var(--xanthous));
+  background-clip: text;
+  color: transparent;
+}
+
 #skill-page {
   background-color: var(--secondary-background);
 }
