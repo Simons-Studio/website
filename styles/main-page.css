@@ -159,6 +159,11 @@
     margin: auto;
   }
 
+  #hero-page h1 {
+    font-size: 250%;
+    font-weight: 900;
+  }
+
   #hero-page > div {
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -171,10 +176,13 @@
 }
 /* Medium screen adjustments */
 @media screen and (min-width: 600px) {
-  #hero-page {
-    width: 80%;
-    overflow: hidden;
+  .page {
     margin: auto;
+  }
+
+  /* Hero Page */
+  #hero-page {
+    overflow: hidden;
     margin-top: 2rem;
     display: flex;
     flex-flow: row wrap;
@@ -212,11 +220,18 @@
   #hero-page > div {
     margin: 1em;
   }
+
+  /* Skill Page */
 }
 
-@media screen and (max-width: 999px) and (min-width: 600px) {
-  #hero-page {
+@media screen and (max-width: 1199px) and (min-width: 600px) {
+  .page {
     width: 90%;
+  }
+
+  #hero-page h1 {
+    font-size: 250%;
+    font-weight: 900;
   }
 
   #hero-page > div {
@@ -232,7 +247,11 @@
   }
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1200px) {
+  .page {
+    width: 80%;
+  }
+
   #hero-page h1 {
     font-size: 300%;
     font-weight: 900;
