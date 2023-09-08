@@ -41,7 +41,7 @@
   --secondary-accent: var(--cerulean);
   --primary-background: var(--oxford-blue);
   --secondary-background: var(--charcoal);
-  --text-colour: var(--cosmic-latte);
+  --text-colour: white;
   --secondary-text-colour: var(--smoky-black);
 }
 
