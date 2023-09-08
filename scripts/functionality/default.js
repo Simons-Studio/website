@@ -19,7 +19,7 @@ function positionHeader() {
         expandableNavMenu.style.display = "flex";
       }
       // slide header into view
-      let headerPeak = min(distBottomHeadertoScreenTop - headerHeight, 0);
+      let headerPeak = Math.min(distBottomHeadertoScreenTop - headerHeight, 0);
       header.style.bottom = headerPeak + "px";
     } else {
       // Determine if vertical menu transition occurs
