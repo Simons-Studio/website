@@ -78,6 +78,7 @@ header #logo {
   margin: 0.1em;
   font-family: monospace;
   font-size: xx-large;
+  font-weight: bolder;
 }
 
 header #logo:focus,
