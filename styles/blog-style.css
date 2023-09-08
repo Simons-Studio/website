@@ -10,7 +10,7 @@ h2 {
 pre {
   margin: 1em;
   padding: 0.5em;
-  background: black;
+  background: var(--secondary-background);
   border-radius: 0.5em;
 }
 
