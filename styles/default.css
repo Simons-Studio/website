@@ -33,11 +33,16 @@
   --hunyadi-yellow: #f6ae2dff;
   --orange-pantone: #f26419ff;
 
-  --primary-colour: var(--redwood);
-  --secondary-colour: var(--wenge);
+  --bole: #874e40ff;
+  --indigo-dye: #2b3f58ff;
+  --chamoisee: #9d7959ff;
+  --yinmn-blue: #2f5884ff;
+
+  --primary-colour: var(--bole);
+  --secondary-colour: var(--yinmn-blue);
   --primary-accent: var(--saffron);
   --secondary-accent: var(--cerulean);
-  --primary-background: var(--charcoal);
+  --primary-background: var(--oxford-blue);
   --secondary-background: var(--cadet-gray);
   --text-colour: white;
 }
