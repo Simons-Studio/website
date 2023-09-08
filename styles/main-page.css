@@ -14,6 +14,7 @@
 #title-scroll-wrapper {
   font-family: monospace;
   margin: 0;
+  font-size: 110%;
 }
 
 .left {
@@ -49,7 +50,27 @@
   text-transform: lowercase;
 }
 
+/* TODO: Fix contrast of colours */
 #developer-title {
+  background: linear-gradient(
+    90deg,
+    var(--primary-colour),
+    var(--primary-accent)
+  );
+  background-clip: text;
+  color: transparent;
+}
+
+#engineer-title {
+  background: linear-gradient(90deg, var(--penn-red), var(--redwood));
+  background-clip: text;
+  color: transparent;
+}
+
+#hire-title {
+  background: linear-gradient(90deg, var(--cadet-gray), var(--carolina-blue));
+  background-clip: text;
+  color: transparent;
 }
 
 @keyframes container-width {
