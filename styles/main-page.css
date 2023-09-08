@@ -143,7 +143,12 @@
   }
 }
 
+/* TODO: Small screen layout */
 @media screen and (max-width: 599px) {
+  .page {
+    width: 90%;
+    margin: auto;
+  }
 }
 /* Medium screen adjustments */
 @media screen and (min-width: 600px) {
