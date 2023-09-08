@@ -222,3 +222,12 @@ a:active {
 footer {
   margin: 1em;
 }
+
+/* Generic Classes */
+.highlight {
+  background-color: var(--primary-colour);
+}
+
+.highlight-secondary {
+  background-color: var(--secondary-colour);
+}
