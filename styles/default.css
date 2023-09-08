@@ -209,7 +209,7 @@ a:link {
 }
 
 a:visited {
-  color: var(--secondary-colour);
+  color: var(--secondary-accent);
 }
 
 a:focus,
