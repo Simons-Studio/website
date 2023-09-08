@@ -222,6 +222,32 @@
   }
 
   /* Skill Page */
+  #skill-page {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+    gap: 0.5rem;
+
+    grid-template-areas:
+      "languages languages education"
+      "skills projects projects";
+  }
+
+  #skill-page #section-languages {
+    grid-area: languages;
+  }
+
+  #skill-page #section-education {
+    grid-area: education;
+  }
+
+  #skill-page #section-skills {
+    grid-area: skills;
+  }
+
+  #skill-page #section-projects {
+    grid-area: projects;
+  }
 }
 
 @media screen and (max-width: 1199px) and (min-width: 600px) {
@@ -264,4 +290,8 @@
   #hero-page .points {
     flex-direction: column;
   }
+}
+
+.page {
+  margin-bottom: 5rem;
 }
