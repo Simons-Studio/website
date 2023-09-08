@@ -234,6 +234,15 @@ a:active {
   background-color: var(--secondary-colour);
 }
 
+.accent {
+  background-color: var(--primary-accent);
+  color: var(--secondary-text-colour);
+}
+
+.accent-secondary {
+  background-color: var(--secondary-accent);
+}
+
 .round {
   border-radius: 1rem;
   padding: 1rem;
