@@ -163,6 +163,11 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
+
+  section {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
 }
 /* Medium screen adjustments */
 @media screen and (min-width: 600px) {
