@@ -7,8 +7,12 @@
   padding: 1rem;
 }
 
-#hero-page .highlight {
-  background-color: var(--secondary-colour);
+#hero-page .call-to-action {
+  display: flex;
+  justify-content: center;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-weight: 900;
 }
 
 #title-scroll-wrapper {
