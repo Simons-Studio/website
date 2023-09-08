@@ -3,40 +3,37 @@
  * These colours may need tweaking
  */
 :root {
-  --saffron: #f7c548;
-  --redwood: #975a47;
-  --ecru: #cfaa6e;
-  --wenge: #716364;
-  --charcoal: #3d4554;
-  --cadet-gray: #9fa7ad;
-  --black-bean: #32140b;
-  --smoky-black: #110704;
-  --violet-blue: #1a47b7;
-  --cosmic-latte: #f9f2e1;
-
+  /* Yellows */
+  --hunyadi-yellow: #f6ae2dff;
   --xanthous: #ffb53dff;
-  --rich-black: #001413ff;
+  --ecru: #cfaa6e;
+  --chamoisee: #9d7959ff;
+  --wenge: #716364;
+
+  /* Reds */
+  --black-bean: #32140b;
   --blood-red: #700200ff;
-  --baby-powder: #fdfffcff;
-  --chinese-violet: #77567aff;
-
-  /* --saffron: #e3b505ff; */
   --penn-red: #95190cff;
-  --mint-cream: #f4fffdff;
-  --cerulean: #247ba0ff;
-  --oxford-blue: #011936ff;
+  --orange-pantone: #f26419ff;
+  --redwood: #975a47;
 
-  /* CSS HEX */
-  --charcoal: #2f4858ff;
+  /* Blues */
+  --rich-black: #001413ff;
   --lapis-lazuli: #33658aff;
   --carolina-blue: #86bbd8ff;
-  --hunyadi-yellow: #f6ae2dff;
-  --orange-pantone: #f26419ff;
-
-  --bole: #874e40ff;
+  --cadet-gray: #9fa7ad;
   --indigo-dye: #2b3f58ff;
-  --chamoisee: #9d7959ff;
+  --violet-blue: #1a47b7;
+
+  /* Current Palette */
+  --bole: #874e40ff;
   --yinmn-blue: #2f5884ff;
+  --saffron: #f7c548;
+  --cerulean: #247ba0ff;
+  --oxford-blue: #011936ff;
+  --charcoal: #3d4554;
+  --cosmic-latte: #f9f2e1;
+  --smoky-black: #110704;
 
   --primary-colour: var(--bole);
   --secondary-colour: var(--yinmn-blue);
@@ -44,7 +41,8 @@
   --secondary-accent: var(--cerulean);
   --primary-background: var(--oxford-blue);
   --secondary-background: var(--charcoal);
-  --text-colour: white;
+  --text-colour: var(--cosmic-latte);
+  --secondary-text-colour: var(--smoky-black);
 }
 
 body {
