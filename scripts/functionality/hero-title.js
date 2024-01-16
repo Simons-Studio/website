@@ -4,8 +4,8 @@ let scroll_container = document.getElementById("scroll-container");
 
 let job_index = 0;
 let jobs = ["developer", "programmer", "hire"];
-let delay = 1000;
-let open = false;
+let delay = 2000;
+let open = true;
 
 const intervelID = setInterval(rotate_text, delay);
 
@@ -13,13 +13,41 @@ function extract_list(element) {}
 
 function rotate_text() {
   if (open) {
-    scroll_container.style.width = "fit-content";
+    let job_type = next_job_title();
+    scroll_container.classList = job_type + "-title";
+    animate_typing(scroll_container, job_type, delay);
   } else {
-    scroll_container.style.width = "0px";
-    scroll_container.textContent = next_job_title();
+    animate_deleting(scroll_container, delay);
   }
-
   open = !open;
+}
+
+function animate_typing(container, string, delay) {
+  let current_text = "";
+  let index = 0;
+  let type_delay = delay / (2 * string.length);
+  let textInterval = setInterval(() => {
+    if (index >= string.length) {
+      clearInterval(textInterval);
+    }
+
+    index++;
+    current_text = string.substring(0, index);
+    container.textContent = current_text;
+  }, type_delay);
+}
+
+function animate_deleting(container, delay) {
+  let current_text = container.textContent;
+  let type_delay = delay / (2 * current_text.length);
+  let textInterval = setInterval(() => {
+    if (current_text === "") {
+      clearInterval(textInterval);
+    }
+
+    current_text = current_text.slice(0, -1);
+    container.textContent = current_text;
+  }, type_delay);
 }
 
 function next_job_title() {
