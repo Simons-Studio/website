@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="styles/default.css" />
     <link rel="stylesheet" href="styles/main-page.css" />
     <script src="scripts/functionality/default.js" defer></script>
+    <script src="scripts/functionality/hero-title.js" defer></script>
   </head>
 
   <body>
@@ -52,20 +53,23 @@
     <main>
       <div id="hero-page" class="page">
         <div class="main-pitch">
-          <h1>
+          <h1 id="hero-title">
             <span>Your Next</span><br />
             <span id="title-scroll-wrapper">
               <span class="left parentheses">[</span>
-              <span class="text-scroll-container">
-                <span id="heading-scroll">
-                  <span id="developer-title" class="job-type">developer.</span>
+              <span id="scroll-container" data-list="developer programmer hire">
+                <span id="job-type"></span>
+
+                <!-- <span id="heading-scroll"> -->
+                <!-- <span id="developer-title" class="job-type">developer.</span>
                   <span id="engineer-title" class="job-type">engineer.</span>
-                  <span id="hire-title" class="job-type">hire.</span>
-                </span>
+                  <span id="hire-title" class="job-type">hire.</span> -->
+                <!-- </span> -->
               </span>
               <span class="right parentheses">]</span>
             </span>
           </h1>
+
           <p id="quick-description">
             Hi. I am Simon. I am a computer scientist graduate, looking to begin
             work in the industry that I love. To aid in this i am going to host
