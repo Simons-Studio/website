@@ -1,15 +1,26 @@
-// let hero_title = document.getElementById("hero-title");
-// let title_scroll_wrapper = document.getElementById("title-scroll-wrapper");
 const scroll_container = document.getElementById("scroll-container");
 
-const jobs = ["developer", "programmer", "hire"];
+const jobs = extract_list(scroll_container);
 let job_index = 0;
 let delay = 2000;
 let open = true;
 
-const intervelID = setInterval(rotate_text, delay);
+var intervelID = setInterval(rotate_text, delay);
+document.addEventListener("visibilitychange", () => {
+  console.log("Visibility Change");
+  if (document.hidden) {
+    clearInterval(intervelID);
+  } else {
+    scroll_container.textContent = "";
+    open = true;
+    intervelID = setInterval(rotate_text, delay);
+  }
+});
 
-function extract_list(element) {}
+function extract_list(element) {
+  const jobs_string = element.dataset.list;
+  return jobs_string.split(/[ ,]+/);
+}
 
 function rotate_text() {
   if (open) {
@@ -27,7 +38,7 @@ function animate_typing(container, string, delay) {
   let index = 0;
   const type_delay = delay / (2 * string.length);
   const textInterval = setInterval(() => {
-    if (index >= string.length) {
+    if (index >= string.length || document.hidden) {
       clearInterval(textInterval);
     }
 
@@ -41,7 +52,7 @@ function animate_deleting(container, delay) {
   let current_text = container.textContent;
   const type_delay = delay / (2 * current_text.length);
   const textInterval = setInterval(() => {
-    if (current_text === "") {
+    if (current_text === "" || document.hidden) {
       clearInterval(textInterval);
     }
 
