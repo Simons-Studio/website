@@ -30,7 +30,7 @@
   vertical-align: text-bottom;
   overflow: hidden;
   white-space: nowrap;
-  width: 0em;
+  width: fit-content;
   /* animation: container-width 10s linear 0.5s infinite; */
 }
 
@@ -50,7 +50,7 @@
 }
 
 /* TODO: Fix contrast of colours */
-#developer-title {
+.developer-title {
   background: linear-gradient(
     90deg,
     var(--primary-colour),
@@ -60,7 +60,7 @@
   color: transparent;
 }
 
-#engineer-title {
+.programmer-title {
   background: linear-gradient(
     90deg,
     var(--carolina-blue),
@@ -70,7 +70,7 @@
   color: transparent;
 }
 
-#hire-title {
+.hire-title {
   background: linear-gradient(90deg, var(--saffron), var(--xanthous));
   background-clip: text;
   color: transparent;
