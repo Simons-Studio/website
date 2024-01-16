@@ -1,9 +1,9 @@
 // let hero_title = document.getElementById("hero-title");
 // let title_scroll_wrapper = document.getElementById("title-scroll-wrapper");
-let scroll_container = document.getElementById("scroll-container");
+const scroll_container = document.getElementById("scroll-container");
 
+const jobs = ["developer", "programmer", "hire"];
 let job_index = 0;
-let jobs = ["developer", "programmer", "hire"];
 let delay = 2000;
 let open = true;
 
@@ -13,7 +13,7 @@ function extract_list(element) {}
 
 function rotate_text() {
   if (open) {
-    let job_type = next_job_title();
+    const job_type = next_job_title();
     scroll_container.classList = job_type + "-title";
     animate_typing(scroll_container, job_type, delay);
   } else {
@@ -25,8 +25,8 @@ function rotate_text() {
 function animate_typing(container, string, delay) {
   let current_text = "";
   let index = 0;
-  let type_delay = delay / (2 * string.length);
-  let textInterval = setInterval(() => {
+  const type_delay = delay / (2 * string.length);
+  const textInterval = setInterval(() => {
     if (index >= string.length) {
       clearInterval(textInterval);
     }
@@ -39,8 +39,8 @@ function animate_typing(container, string, delay) {
 
 function animate_deleting(container, delay) {
   let current_text = container.textContent;
-  let type_delay = delay / (2 * current_text.length);
-  let textInterval = setInterval(() => {
+  const type_delay = delay / (2 * current_text.length);
+  const textInterval = setInterval(() => {
     if (current_text === "") {
       clearInterval(textInterval);
     }
@@ -51,7 +51,7 @@ function animate_deleting(container, delay) {
 }
 
 function next_job_title() {
-  let job_title = jobs[job_index];
+  const job_title = jobs[job_index];
   job_index++;
   job_index %= jobs.length;
   return job_title;
