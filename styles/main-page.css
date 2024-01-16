@@ -24,14 +24,14 @@
   margin-left: -0.5em;
 }
 
-.text-scroll-container {
+#scroll-container {
   /* border: 5px dashed var(--primary-accent); */
   display: inline-block;
   vertical-align: text-bottom;
   overflow: hidden;
   white-space: nowrap;
   width: 0em;
-  animation: container-width 10s linear 0.5s infinite;
+  /* animation: container-width 10s linear 0.5s infinite; */
 }
 
 /* Job word transform animation */
@@ -130,7 +130,7 @@
 }
 
 /* Animations */
-@keyframes container-width {
+/* @keyframes container-width {
   0% {
     width: 0em;
   }
@@ -198,7 +198,7 @@
   100% {
     transform: translate(0rem);
   }
-}
+} */
 
 /* TODO: Small screen layout */
 @media screen and (max-width: 599px) {
