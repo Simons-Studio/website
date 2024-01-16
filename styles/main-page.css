@@ -94,6 +94,11 @@
   color: transparent;
 }
 
+dt {
+  font-weight: 600;
+  font-style: italic;
+}
+
 #skill-page {
   background-color: var(--secondary-background);
 }
@@ -113,11 +118,13 @@
 
 .language-table .language-name {
   grid-area: language-name;
+  color: var(--primary-accent);
 }
 
 .language-table .language-experience {
   grid-area: experience;
   text-align: right;
+  color: var(--primary-accent);
 }
 
 .language-table .language-usage {
@@ -129,76 +136,9 @@
   padding: 0;
 }
 
-/* Animations */
-/* @keyframes container-width {
-  0% {
-    width: 0em;
-  }
-  15% {
-    width: 6em;
-  }
-  25% {
-    width: 6em;
-  }
-  30% {
-    width: 0em;
-  }
-  33% {
-    width: 0em;
-  }
-
-  48% {
-    width: 5.5em;
-  }
-  58% {
-    width: 5.5em;
-  }
-  63% {
-    width: 0em;
-  }
-  66% {
-    width: 0em;
-  }
-
-  81% {
-    width: 3.2em;
-  }
-  91% {
-    width: 3.2em;
-  }
-  96% {
-    width: 0em;
-  }
-  100% {
-    width: 0em;
-  }
+#work-page section {
+  margin-top: 1em;
 }
-
-@keyframes text-position {
-  0% {
-    transform: translate(0rem);
-  }
-  30% {
-    transform: translate(0rem);
-  }
-  33% {
-    transform: translate(-6.6em);
-  }
-
-  63% {
-    transform: translate(-6.6em);
-  }
-  66% {
-    transform: translate(-12.6em);
-  }
-
-  96% {
-    transform: translate(-12.6em);
-  }
-  100% {
-    transform: translate(0rem);
-  }
-} */
 
 /* TODO: Small screen layout */
 @media screen and (max-width: 599px) {
