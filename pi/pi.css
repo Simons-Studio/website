@@ -1,0 +1,5 @@
+/*  */
+
+html, body {margin: 0; height: 100%; overflow: hidden}
+
+::highlight(picked-number) {color: red;}
