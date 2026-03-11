@@ -1,17 +1,20 @@
-let background_digits = document.getElementById("background-digits")
+let background_digits = document.getElementById("background-digits");
 
-let x = fetch("1-10000.txt")
+console.log("test");
 
-background_digits.textContent = ""
+async function getData(path) {
+  try {
+    const response = await fetch(path);
+    if (!response.ok) {
+      throw new Error(`Status: ${response.status}`);
+    }
 
-function pi_digits(n, base = 10) {
-
+    const result = await response.text();
+    console.log(result);
+  } catch (error) {
+    console.log(error.message);
+  }
 }
 
-function chudnovsky_algorithm(max_n) {
+getData("1-10000.txt");
 
-}
-
-function step(k) {
-  Decimal()
-}
